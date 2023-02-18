@@ -1,14 +1,14 @@
 #!/usr/bin/env make -f
 
-# Python Repo Template
+# Python Acessory Kit Repo
 # ..................................
-# Copyright (c) 2017-2019, Kendrick Walls
+# Copyright (c) 2018-2023, Kendrick Walls
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 # ..........................................
-# http://www.github.com/reactive-firewall/python-repo/LICENSE.md
+# http://www.github.com/reactive-firewall/pak/LICENSE.md
 # ..........................................
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -65,12 +65,12 @@ init:
 	$(QUIET)$(ECHO) "$@: Done."
 
 install: must_be_root
-	$(QUIET)python3 -m pip install "git+https://github.com/reactive-firewall/pythonrepo.git#egg=pythonrepo"
+	$(QUIET)python3 -m pip install "git+https://github.com/reactive-firewall/pak.git#egg=pak"
 	$(QUITE)$(WAIT)
 	$(QUIET)$(ECHO) "$@: Done."
 
 uninstall:
-	$(QUITE)python3 -m pip uninstall pythonrepo || true
+	$(QUITE)python3 -m pip uninstall pak || true
 	$(QUITE)$(WAIT)
 	$(QUIET)$(ECHO) "$@: Done."
 
@@ -79,13 +79,13 @@ test-reports:
 	$(QUIET)$(ECHO) "$@: Done."
 
 purge: clean uninstall
-	$(QUIET)python3 -m pip uninstall pythonrepo && python -m pip uninstall pythonrepo || true
+	$(QUIET)python3 -m pip uninstall pak && python -m pip uninstall pak || true
 	$(QUIET)$(ECHO) "$@: Done."
 
 test: cleanup
-	$(QUIET)coverage run -p --source=pythonrepo -m unittest discover --verbose -s ./tests -t ./ || python3 -m unittest discover --verbose -s ./tests -t ./ || python -m unittest discover --verbose -s ./tests -t ./ || DO_FAIL=exit 2 ;
+	$(QUIET)coverage run -p --source=pak -m unittest discover --verbose -s ./tests -t ./ || python3 -m unittest discover --verbose -s ./tests -t ./ || python -m unittest discover --verbose -s ./tests -t ./ || DO_FAIL=exit 2 ;
 	$(QUIET)coverage combine 2>/dev/null || true
-	$(QUIET)coverage report -m --include=pythonrepo* 2>/dev/null || true
+	$(QUIET)coverage report -m --include=pak* 2>/dev/null || true
 	$(QUIET)$(DO_FAIL);
 	$(QUIET)$(ECHO) "$@: Done."
 
@@ -106,20 +106,20 @@ cleanup:
 	$(QUIET)rm -f tests/*.pyc 2>/dev/null || true
 	$(QUIET)rm -f tests/*~ 2>/dev/null || true
 	$(QUIET)rm -Rf tests/__pycache__ 2>/dev/null || true
-	$(QUIET)rm -f pythonrepo/*.pyc 2>/dev/null || true
-	$(QUIET)rm -Rf pythonrepo/__pycache__ 2>/dev/null || true
-	$(QUIET)rm -Rf pythonrepo/*/__pycache__ 2>/dev/null || true
-	$(QUIET)rm -f pythonrepo/*~ 2>/dev/null || true
+	$(QUIET)rm -f pak/*.pyc 2>/dev/null || true
+	$(QUIET)rm -Rf pak/__pycache__ 2>/dev/null || true
+	$(QUIET)rm -Rf pak/*/__pycache__ 2>/dev/null || true
+	$(QUIET)rm -f pak/*~ 2>/dev/null || true
 	$(QUIET)rm -f *.pyc 2>/dev/null || true
-	$(QUIET)rm -f pythonrepo/*/*.pyc 2>/dev/null || true
-	$(QUIET)rm -f pythonrepo/*/*~ 2>/dev/null || true
+	$(QUIET)rm -f pak/*/*.pyc 2>/dev/null || true
+	$(QUIET)rm -f pak/*/*~ 2>/dev/null || true
 	$(QUIET)rm -f *.DS_Store 2>/dev/null || true
 	$(QUIET)rm -Rf .pytest_cache/ 2>/dev/null || true
 	$(QUIET)rmdir ./test-reports/ 2>/dev/null || true
-	$(QUIET)rm -f pythonrepo/*.DS_Store 2>/dev/null || true
-	$(QUIET)rm -f pythonrepo/*/*.DS_Store 2>/dev/null || true
-	$(QUIET)rm -f pythonrepo.egg-info/* 2>/dev/null || true
-	$(QUIET)rmdir pythonrepo.egg-info 2>/dev/null || true
+	$(QUIET)rm -f pak/*.DS_Store 2>/dev/null || true
+	$(QUIET)rm -f pak/*/*.DS_Store 2>/dev/null || true
+	$(QUIET)rm -f pak.egg-info/* 2>/dev/null || true
+	$(QUIET)rmdir pak.egg-info 2>/dev/null || true
 	$(QUIET)rm -f ./*/*~ 2>/dev/null || true
 	$(QUIET)rm -f ./*~ 2>/dev/null || true
 	$(QUIET)coverage erase 2>/dev/null || true

@@ -11,13 +11,13 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-# import sys
-# import os
+import sys
+import os
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-# sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('../pak/'))
 
 # -- General configuration -----------------------------------------------------
 
@@ -165,7 +165,7 @@ html_static_path = ['_static']
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'python_repo_doc'
+htmlhelp_basename = 'pak_doc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -187,7 +187,7 @@ latex_documents = [
 	(
 		u'index',
 		u'Documentation.tex',
-		u'python repo Template Documentation',
+		u'PAK Template Documentation',
 		u'reactive-firewall',
 		u'manual'
 	),
@@ -221,8 +221,8 @@ latex_documents = [
 man_pages = [
 	(
 		u'index',
-		u'python_repo',
-		u'python_repo Template Documentation',
+		u'pak',
+		u'pak Template Documentation',
 		[u'reactive-firewall'],
 		1
 	)
@@ -240,11 +240,11 @@ man_pages = [
 texinfo_documents = [
 	(
 		u'index',
-		u'Python Repo',
-		u'python_repo Template Documentation',
+		u'PAK',
+		u'pak Template Documentation',
 		u'reactive-firewall',
-		u'python_repo Template',
-		u'python_repo Template.',
+		u'pak Template',
+		u'pak Template.',
 		u'Miscellaneous'
 	),
 ]

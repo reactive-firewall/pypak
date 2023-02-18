@@ -1,17 +1,20 @@
+codecov:
+  max_report_age: off
+ 
 coverage:
+  precision: 2
+  range: "80...100"
   status:
+    default_rules:
+      flag_coverage_not_uploaded_behavior: exclude
     project:
-      default: on
-        target: 95%
+      default:
+        target: auto
         base: auto
-      tests:
-        target: 80%
-        flags: tests
-        paths:
-          - tests
-
-flags:
-  tests:
-    paths:
-      - tests
-    joined: false
+        threshold: 1%
+        branches:
+          - master
+          - stageing
+          - stable
+        if_ci_failed: error #success, failure, error, ignore
+        only_pulls: false

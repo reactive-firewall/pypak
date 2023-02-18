@@ -1,15 +1,15 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Python Repo Template
+# Python Acessory Kit Repo
 # ..................................
-# Copyright (c) 2017-2020, Kendrick Walls
+# Copyright (c) 2018-2023, Kendrick Walls
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 # ..........................................
-# http://www.github.com/reactive-firewall/python-repo/LICENSE.md
+# http://www.github.com/reactive-firewall/pak/LICENSE.md
 # ..........................................
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -48,14 +48,14 @@ readme = readFile("""README.md""")
 SLA = readFile("""LICENSE.md""")
 
 setup(
-	name="""pythonrepo""",
-	version="""1.1.3""",
-	description="""Python Repo""",
+	name="""pak""",
+	version="""1.0.0""",
+	description="""Python Acessory Kit""",
 	long_description=readme,
 	install_requires=requirements,
 	author="""reactive-firewall""",
 	author_email="""reactive-firewall@users.noreply.github.com""",
-	url="""https://github.com/reactive-firewall/python-repo.git""",
+	url="""https://github.com/reactive-firewall/pak.git""",
 	license=SLA,
 	packages=find_packages(exclude=("""tests""", """docs""")),
 )

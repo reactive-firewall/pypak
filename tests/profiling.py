@@ -1,15 +1,15 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Python Test Repo Template
+# Python Acessory Kit Repo
 # ..................................
-# Copyright (c) 2017-2022, Kendrick Walls
+# Copyright (c) 2018-2023, Kendrick Walls
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 # ..........................................
-# http://www.github.com/reactive-firewall/python-repo/LICENSE.md
+# http://www.github.com/reactive-firewall/pak/LICENSE.md
 # ..........................................
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -29,20 +29,12 @@
 # NO ASSOCIATION
 
 
-__module__ = """tests.profiling"""
-"""This is pythonrepo testing module Template."""
-
-
 try:
 	import sys
 	if sys.__name__ is None:  # pragma: no branch
 		raise ImportError("[CWE-758] OMG! we could not import sys! ABORT. ABORT.")
-except Exception as badErr:  # pragma: no branch
-	baton = ImportError(badErr, str("[CWE-758] Test module failed completely."))
-	baton.module = __module__
-	baton.path = __file__
-	baton.__cause__ = badErr
-	raise baton
+except Exception as err:  # pragma: no branch
+	raise ImportError(err)
 
 
 try:
@@ -50,50 +42,26 @@ try:
 		import os
 	else:  # pragma: no branch
 		os = sys.modules["""os"""]
-except Exception as badErr:  # pragma: no branch
-	baton = ImportError(badErr, str("[CWE-758] Test module failed completely."))
-	baton.module = __module__
-	baton.path = __file__
-	baton.__cause__ = badErr
-	raise baton
-
-
-try:
-	if 'functools' not in sys.modules:
-		import functools
-	else:  # pragma: no branch
-		functools = sys.modules["""functools"""]
-except Exception as badErr:  # pragma: no branch
-	baton = ImportError(badErr, str("[CWE-758] Test module failed completely."))
-	baton.module = __module__
-	baton.path = __file__
-	baton.__cause__ = badErr
-	raise baton
+except Exception:  # pragma: no branch
+	raise ImportError("[CWE-758] OS Failed to import.")
 
 
 try:
 	import time
 	if time.__name__ is None:  # pragma: no branch
 		raise NotImplementedError("[CWE-440] We could not import time. Are we in the speed-force!")
-except Exception as badErr:  # pragma: no branch
-	baton = ImportError(badErr, str("[CWE-758] Test module failed completely."))
-	baton.module = __module__
-	baton.path = __file__
-	baton.__cause__ = badErr
-	raise baton
+except Exception as err:
+	raise ImportError(err)
+	exit(3)
 
 
 try:
-	if 'cProfile' not in sys.modules:
-		import cProfile
-	else:  # pragma: no branch
-		cProfile = sys.modules["""cProfile"""]
-except Exception as badErr:  # pragma: no branch
-	baton = ImportError(badErr, str("[CWE-758] Test module failed completely."))
-	baton.module = __module__
-	baton.path = __file__
-	baton.__cause__ = badErr
-	raise baton
+	import cProfile
+	if cProfile.__name__ is None:  # pragma: no branch
+		raise NotImplementedError("[CWE-440] We could not import cProfile. ABORT!")
+except Exception as err:  # pragma: no branch
+	raise ImportError(err)
+	exit(3)
 
 
 try:
@@ -101,13 +69,16 @@ try:
 		sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), str('..'))))
 		sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), str('.'))))
 	except Exception as ImportErr:  # pragma: no branch
-		raise ImportError(ImportErr, str("[CWE-758] Profile module failed completely."))
-except Exception as badErr:  # pragma: no branch
-	baton = ImportError(badErr, str("[CWE-758] Test module failed completely."))
-	baton.module = __module__
-	baton.path = __file__
-	baton.__cause__ = badErr
-	raise baton
+		print(str(''))
+		print(str(type(ImportErr)))
+		print(str(ImportErr))
+		print(str((ImportErr.args)))
+		print(str(''))
+		ImportErr = None
+		del ImportErr
+		raise ImportError(str("[CWE-758] Profile module failed completely."))
+except Exception:  # pragma: no branch
+	raise ImportError("[CWE-440] Failed to import test profiling")
 
 
 class timewith():
@@ -138,7 +109,7 @@ class timewith():
 
 
 def do_time_profile(func, timer_name="time_profile"):
-	"""Run a function with a timer.
+	"""Runs a function with a timer.
 
 	Time Testing:
 
@@ -166,9 +137,11 @@ def do_time_profile(func, timer_name="time_profile"):
 		>>>
 
 	"""
+	import functools
+
 	@functools.wraps(func)
 	def timer_profile_func(*args, **kwargs):
-		"""Wraps a function in timewith() function."""
+		"""Wraps a function in timewith()"""
 		theOutput = None
 		with timewith(timer_name) as timer:
 			timer.checkpoint(str("Start Timer"))
@@ -210,9 +183,7 @@ def do_cprofile(func):
 
 
 	"""
-	@functools.wraps(func)
 	def profiled_func(*args, **kwargs):
-		"""Wraps a function in profile.enable/disable() functions."""
 		profile = cProfile.Profile()
 		try:
 			profile.enable()
@@ -247,7 +218,7 @@ try:  # noqa
 
 except ImportError:  # pragma: no cover
 	def do_profile(follow=None):
-		"""Helpful if you accidentally leave in production!"""
+		"Helpful if you accidentally leave in production!"
 		if follow is None:
 			follow = []
 
@@ -258,7 +229,7 @@ except ImportError:  # pragma: no cover
 		return inner
 
 
-def main(*argv):  # pragma: no cover
+def main(argv=None):  # pragma: no cover
 	"""The Main Event makes no sense to profiling."""
 	raise NotImplementedError("CRITICAL - test profiling main() not implemented. yet?")
 
