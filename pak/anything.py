@@ -119,7 +119,7 @@ class nothing(object):
 #	__slots__ = ("""__dict__""", """__real_data__""", """__real_id__""",)
 
 	__real_id__ = None
-	
+
 	__real_data__ = None
 
 	def __init__(self, **kwds):
@@ -346,7 +346,7 @@ class nothing(object):
 				B: Test that id can be calculated.
 				C: Test that __data__ can be changed.
 				D: Test that id can be recalculated (and is not same as B.)
-			
+
 			>>> import pak.anything
 			>>>
 			>>> fixturecls = nothing()
@@ -418,7 +418,7 @@ class nothing(object):
 
 			Reports this is a none type. Literally:
 				<class nothing>
-			
+
 			Testing:
 
 			First setup test fixtures by importing anything.
@@ -500,7 +500,7 @@ class nothing(object):
 	__id__ = property(
 		__get_id__, __set_id__, __del_id__,
 		"""Instance ID of anything based on it's data.
-			
+
 			Full dynamic lifecycle usage...
 
 			Example: Test by calls to get/set/del.
@@ -530,7 +530,7 @@ class nothing(object):
 class anything(nothing):
 	"""
 		Generic anything object.
-		
+
 		data stops here: see https://docs.python.org/2.7/reference/datamodel.html#invoking-descriptors
 
 		Testing:
@@ -795,7 +795,7 @@ class anything(nothing):
 			>>>
 
 			Testcase 1: Instances of Anything should be able to contain instance data
-			
+
 			>>> any_thing_fixture = pak.anything.anything()
 			>>> any_thing_fixture.junk = "5"
 			>>> print(any_thing_fixture.__data__) #doctest: +ELLIPSIS
@@ -855,7 +855,7 @@ class anything(nothing):
 			>>>
 
 			Testcase 3: Instances of Anything should be able to contain instance data literally
-			
+
 			>>> src_fixture = pak.anything.anything()
 			>>> dst_fixture = pak.anything.anything()
 			>>> src_fixture.junk = "it works"
@@ -1305,7 +1305,7 @@ class anything(nothing):
 			>>>
 
 		"""
-		__skip_keys__ = ["""__dict__""", """__data__""", """__id__"""]
+		__skip_keys__ = ["""__data__""", """__id__"""]
 		self.__setattr__(
 						"""__data__""",
 						dict(
@@ -1334,10 +1334,12 @@ class anything(nothing):
 			>>>
 
 		"""
-		return str("""<{name} with id {idnum} and data={thedata}>""").format(
+		return str("""{open}{name} with id {idnum} and data={thedata}{close}""").format(
 			name=str(self.__class__.__name__),
 			idnum=str(self.id),
-			thedata=repr(self.__getstate__())
+			thedata=repr(self.__getstate__()),
+			open="""<""",
+			close=""">"""
 		)
 
 	def __repr__(self):
