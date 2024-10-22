@@ -1,8 +1,11 @@
 [run]
+concurrency = multiprocessing
 parallel = True
+sigterm = True
+branch = True
 
 [report]
-include = pythonrepo*,tests*
+include = pak/*,tests/*
 # Regexes for lines to exclude from consideration
 exclude_lines =
     # Have to re-enable the standard pragma
@@ -10,15 +13,47 @@ exclude_lines =
     except Exception
     except BaseException:
     # Don't complain if tests don't hit defensive assertion code:
+    except UnicodeDecodeError
     raise AssertionError
     raise NotImplementedError
     raise ImportError
-    except unittest.SkipTest
-    except IOError
-    except OSError
-
+    raise baton
+    baton = ImportError
+    raise ModuleNotFoundError
+    baton.module
+    except subprocess.CalledProcessError
+    except ..Error
+    # don't complain about sys.modules
+    sys.modules
+    not in sys.modules:
     # Don't complain if non-runnable code isn't run:
-    if __name__ in '__main__':
+    if __name__ in u'__main__':
+    if __name__ .. .__main__.:
+    if __sys_path__ not in sys.path:
+    os.abort()
+    exit
 
 ignore_errors = True
+
+partial_branches =
+    # Have to re-enable the standard pragma rules
+    pragma: no branch
+    skipcq: PYL-
+    finally:
+    @
+    except unittest.SkipTest
+    self.skipTest
+    self.fail
+    # Don't complain if non-runnable code isn't run:
+    if __name__ in u'__main__':
+    if __name__ in '__main__':
+    if __sys_path__ not in sys.path:
+    # don't complain about sys.modules
+    sys.modules
+    not in sys.modules:
+    if context.__name__ is None:
+    if 'os' not in sys.modules:
+    if 'os.path' not in sys.modules:
+    if 'argparse' not in sys.modules:
+    RuntimeError("SHUTDOWN")
 

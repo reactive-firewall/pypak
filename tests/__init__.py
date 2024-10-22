@@ -22,7 +22,7 @@
 """Python Repo Testing Module."""
 
 __module__ = """tests"""
-"""This is pythonrepo testing module Template."""
+"""This is pak testing module Template."""
 
 
 try:
