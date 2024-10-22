@@ -1,16 +1,39 @@
-# About
-This repo is ...
+# Python Accessory Kit (PAK)
 
-# Status
+## Table of Contents
+- [About](#about)
+- [Status](#status)
+  - [Master Branch](#master-branch)
+  - [Stable Branch](#stable-branch)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+  - [Modules](#modules)
+  - [Scripts](#scripts)
+  - [Documentation](#documentation)
+  - [Tests](#tests)
+- [Development](#development)
+  - [Testing](#testing)
+  - [Style Guidelines](#style-guidelines)
+- [Dependencies](#dependencies)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
-### master:
+## About
+
+The Python Accessory Kit (PAK) is a collection of Python utilities and scripts designed to assist with various development tasks.
+
+## Status
+
+### Master Branch
 [![status](https://travis-ci.org/reactive-firewall/pak.svg?branch=master)](https://travis-ci.org/reactive-firewall/pak)
 [![CircleCI](https://circleci.com/gh/reactive-firewall/pak/tree/master.svg?style=svg)](https://circleci.com/gh/reactive-firewall/pak/tree/master)
 [![Appveyor](https://ci.appveyor.com/api/projects/status/pak/branch/master?svg=true)](https://ci.appveyor.com/project/reactive-firewall/pak/branch/master)
 [![Python 3](https://pyup.io/repos/github/reactive-firewall/pak/python-3-shield.svg)](https://pyup.io/repos/github/reactive-firewall/pak/)
 [![Updates](https://pyup.io/repos/github/reactive-firewall/pak/shield.svg)](https://pyup.io/repos/github/reactive-firewall/pak/)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/pak/test_coverage)](https://codeclimate.com/github/reactive-firewall/pak/test_coverage)
-[![code coverage](https://codecov.io/gh/reactive-firewall/pak/branch/master/graph/badge.svg)](https://codecov.io/gh/reactive-firewall/pak/branch/master/)
+[![Code Coverage](https://codecov.io/gh/reactive-firewall/pak/branch/master/graph/badge.svg)](https://codecov.io/gh/reactive-firewall/pak/branch/master/)
 [![Coverage Status](https://coveralls.io/repos/github/reactive-firewall/pak/badge.svg?branch=master)](https://coveralls.io/github/reactive-firewall/pak?branch=master)
 [![Code Climate](https://codeclimate.com/github/reactive-firewall/pak/badges/gpa.svg)](https://codeclimate.com/github/reactive-firewall/pak)
 [![CodeFactor](https://www.codefactor.io/repository/github/reactive-firewall/pak/badge)](https://www.codefactor.io/repository/github/reactive-firewall/pak)
@@ -18,16 +41,38 @@ This repo is ...
 ![Size](https://img.shields.io/github/languages/code-size/reactive-firewall/pak.svg)
 ![commits-since](https://img.shields.io/github/commits-since/reactive-firewall/pak/stable.svg?maxAge=9000)
 
-### Stable:
+### Stable Branch
 [CI](gha link goes here)
 [![CircleCI](https://circleci.com/gh/reactive-firewall/pak/tree/stable.svg?style=svg)](https://circleci.com/gh/reactive-firewall/pak/tree/stable)
 [![Appveyor](https://ci.appveyor.com/api/projects/status/6gggp1wpbnnjokm4/branch/stable?svg=true)](https://ci.appveyor.com/project/reactive-firewall/pak/branch/stable)
-[![code coverage](https://codecov.io/gh/reactive-firewall/pak/branch/stable/graph/badge.svg)](https://codecov.io/gh/reactive-firewall/pak/branch/stable/)
+[![Code Coverage](https://codecov.io/gh/reactive-firewall/pak/branch/stable/graph/badge.svg)](https://codecov.io/gh/reactive-firewall/pak/branch/stable/)
 [![Coverage Status](https://coveralls.io/repos/github/reactive-firewall/pak/badge.svg?branch=stable)](https://coveralls.io/github/reactive-firewall/pak?branch=stable)
 [![codebeat badge](https://codebeat.co/badges/87520e4a-6d24-4e98-a61e-6e9efc58f783)](https://codebeat.co/projects/github-com-reactive-firewall-pak-stable)
 
 # How do I use this to create a new project repo?
 
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Ensure your code follows the CEP-8 (Python) or CEP-5 (Bash) coding standards.
+4. Submit a pull request with a detailed description of your changes.
+
+## License
 
 [![License - MIT](https://img.shields.io/github/license/reactive-firewall/pak.svg?maxAge=2592000)](https://github.com/reactive-firewall/pak/blob/stable/LICENSE.md)
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Acknowledgments
+
+- **Third-party Acknowledgement**:
+
+  Some code, particularly in `tests/profiling.py`, was modified or derived from [Zapier's profiling-python-like-a-boss project](https://github.com/zapier/profiling-python-like-a-boss/tree/1ab93a1154). This code is under the BSD-3-Clause license. See the [LICENSE](https://github.com/zapier/profiling-python-like-a-boss/blob/1ab93a1154/LICENSE.md) for details.
+
+- **Special Thanks**:
+
+  Thanks to all contributors and the open-source community for their invaluable support and resources.
 
