@@ -49,7 +49,92 @@ The Python Accessory Kit (PAK) is a collection of Python utilities and scripts d
 [![Coverage Status](https://coveralls.io/repos/github/reactive-firewall/pak/badge.svg?branch=stable)](https://coveralls.io/github/reactive-firewall/pak?branch=stable)
 [![codebeat badge](https://codebeat.co/badges/87520e4a-6d24-4e98-a61e-6e9efc58f783)](https://codebeat.co/projects/github-com-reactive-firewall-pak-stable)
 
-# How do I use this to create a new project repo?
+## Installation
+
+Clone the repository and navigate to the project directory:
+
+```bash
+git clone https://github.com/reactive-firewall/pak.git
+cd pak
+```
+
+Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+PAK provides a set of modules and scripts that can be utilized in your Python projects. You can import the modules in your Python code as follows:
+
+```python
+import pak
+```
+
+## Features
+
+### Modules
+
+- `pak/__init__.py`: The initialization module for PAK.
+- `pak/anything.py`: Contains the `anything` and `nothing` classes, providing generic object implementations with extensive method overloading and testing examples.
+
+### Scripts
+
+- `setup.py`: Script to install the PAK package.
+- `Makefile`: Contains development, testing, and cleaning commands for ease of use.
+
+### Documentation ( **WIP** )
+
+Located in the `docs/` directory:
+
+- `conf.py`: Configuration for Sphinx documentation generation.
+- `index.md`: The main page for project documentation.
+- `Makefile` and `make.bat`: Scripts to build documentation in various formats.
+
+### Tests
+
+Located in the `tests/` directory.
+
+## Development
+
+### Testing
+
+For testing, use the provided `Makefile` commands:
+
+- Run unit tests:
+
+```bash
+make clean
+make test
+```
+
+- Check code style according to CEP-8 conventions:
+
+```bash
+make clean
+make test-style
+```
+
+- Run tests across multiple environments using Tox:
+
+```bash
+make clean
+make test-tox
+```
+
+### Style Guidelines
+
+This project follows custom coding standards:
+
+- **CEP-8**: A style guide for Python code, similar to PEP 8 but with project-specific conventions.
+- **CEP-5**: A style guide for Bash scripts, detailing conventions for script structure and formatting.
+
+Please ensure all Python and Bash code adheres to these standards.
+
+## Dependencies
+
+The project dependencies are listed in `requirements.txt`.
 
 ## Contributing
 
