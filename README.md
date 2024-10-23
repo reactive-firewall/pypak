@@ -90,7 +90,10 @@ implementations with extensive method overloading and testing examples.
 - `setup.py`: Script to install the PAK package.
 - `Makefile`: Contains development, testing, and cleaning commands for ease of use.
 
-### Documentation ( **WIP** )
+### Documentation
+
+> [!NOTE]
+> **WIP** Documentation is a work in progress. :construction:
 
 Located in the `docs/` directory:
 
@@ -172,4 +175,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
   Thanks to all contributors and the open-source community for their invaluable support and
   resources.
-
