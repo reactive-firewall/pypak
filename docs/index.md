@@ -1,22 +1,16 @@
-.. python_repo documentation master file, created by
-   sphinx-quickstart on Mon Apr 16 21:22:43 2012.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+# Welcome to PAK's documentation
 
-Welcome to Python Repo' documentation!
-================================================
+## Quickstart
 
-Contents:
+Jump directly to the [Quickstart](./toc)
 
-.. toctree::
-   :maxdepth: 2
+### Other Documentation Resources
 
+- [README](./README): Introduction and installation instructions.
+- [License](./LICENSE): Licensing information and acknowledgments.
 
+---
 
-Indices and tables
-==================
+### Copyright (c) 2023-2024, Mr. Walls
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+[![License - MIT](https://img.shields.io/github/license/reactive-firewall/pak.svg?maxAge=3600)](https://github.com/reactive-firewall/pak/blob/stable/LICENSE.md)

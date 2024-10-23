@@ -7,7 +7,7 @@
 #    EFFORT IS WITH YOU.
 #
 # B. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THIS SHELL SCRIPT
-#    AND SERVICES ARE PROVIDED "AS IS" AND “AS AVAILABLE”, WITH ALL FAULTS AND
+#    AND SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE", WITH ALL FAULTS AND
 #    WITHOUT WARRANTY OF ANY KIND, AND THE AUTHOR OF THIS SHELL SCRIPT'S LICENSORS
 #    (COLLECTIVELY REFERRED TO AS "THE AUTHOR" FOR THE PURPOSES OF THIS DISCLAIMER)
 #    HEREBY DISCLAIM ALL WARRANTIES AND CONDITIONS WITH RESPECT TO THIS SHELL SCRIPT
@@ -59,118 +59,20 @@
 #    the amount of five dollars ($5.00). The foregoing limitations will apply
 #    even if the above stated remedy fails of its essential purpose.
 ################################################################################
+#
+# .github/tool_checkmake.sh
+FILE="${1}" ;
+EMSG="Checkmake linter complained.";
 
-ulimit -t 1200
-PATH="/bin:/sbin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:${PATH}"
-LANG=${LANG:-"en_US"}
-LC_ALL="${LANG:1:5}.utf-8"
-umask 127
-
-LOCK_FILE="${TMPDIR:-/tmp}/codecov_test_script_lock"
-EXIT_CODE=0
-
-test -x $(command -v grep) || exit 126 ;
-test -x $(command -v curl) || exit 126 ;
-test -x $(command -v gpgv) || exit 126 ;
-test -x $(command -v shasum) || exit 126 ;
-
-# sorry no windows support here
-if [[ $( \uname -s ) == "Darwin" ]] ; then
-	CI_OS="macos"
-else
-	CI_OS="linux"
+# Check if file exists
+if [[ ! ( -f "${FILE}" ) ]]; then
+    printf "%s\n" "::error file=${FILE},title=MISSING:: File '${FILE}' not found." >&2
+    exit 1
 fi
 
-function cleanup() {
-	rm -f ${LOCK_FILE} 2>/dev/null || true ; wait ;
-	rm -f ./codecov 2>/dev/null || true ; wait ;
-}
-
-if [[ ( $(shlock -f ${LOCK_FILE} -p $$ ) -eq 0 ) ]] ; then
-        trap 'cleanup ; wait ; exit 1 ;' SIGHUP || EXIT_CODE=3
-        trap 'cleanup ; wait ; exit 1 ;' SIGTERM || EXIT_CODE=4
-        trap 'cleanup ; wait ; exit 1 ;' SIGQUIT || EXIT_CODE=5
-		# SC2173 - https://github.com/koalaman/shellcheck/wiki/SC2173
-		# trap 'rm -f ${LOCK_FILE} 2>/dev/null || true ; wait ; exit 1 ;' SIGSTOP || EXIT_CODE=7
-        trap 'cleanup ; wait ; exit 1 ;' SIGINT || EXIT_CODE=8
-        trap 'cleanup ; wait ; exit 1 ;' SIGABRT || EXIT_CODE=9
-        trap 'cleanup ; wait ; exit ${EXIT_CODE} ;' EXIT || EXIT_CODE=1
-else
-        echo "CodeCov already in progress by "`head ${LOCK_FILE}` ;
-        false ;
-        exit 126 ;
-fi
-
-# this is how test files are found:
-
-# THIS IS THE ACTUAL TEST DIR USED (update _TEST_ROOT_DIR as needed)
-_TEST_ROOT_DIR="./" ;
-if [[ -d ./pak ]] ; then
-	_TEST_ROOT_DIR="./" ;
-elif [[ -d ./tests ]] ; then
-	_TEST_ROOT_DIR="./" ;
-else
-	echo "FAIL: missing valid folder or file"
-	EXIT_CODE=1
-fi
-
-# This File  MUST BE GIT-IGNORED
-# to be SAFELY USED to store Tokens and env vars (update logic as needed)
-if [[ ( -r ./codecov_env ) ]] ; then
-	source ./codecov_env 2>/dev/null || true ;
-fi
-
-if [[ ( -r ./codecov.yml ) ]] ; then
-	cat codecov.yml | curl -X POST --data-binary @- https://codecov.io/validate 2>/dev/null || EXIT_CODE=6
-fi
-if [[ ( -r ./.codecov.yml ) ]] ; then
-	cat ./.codecov.yml | curl -X POST --data-binary @- https://codecov.io/validate 2>/dev/null || EXIT_CODE=6
-fi
-
-
-#########################
-# actual Work starts here
-#########################
-curl -fLso codecov https://uploader.codecov.io/latest/${CI_OS:-linux}/codecov ;
-for i in 1 256 512 ; do
-	curl -fLso codecov.SHA${i}SUM "https://uploader.codecov.io/latest/${CI_OS:-linux}/codecov.SHA${i}SUM" ; wait ;
-	curl -fLso codecov.SHA${i}SUM.sig "https://uploader.codecov.io/latest/${CI_OS:-linux}/codecov.SHA${i}SUM.sig" ; wait ;
-	# test sha1/sha512 signatures if found and sha256 even if not found
-	if [[ ( -r codecov.SHA${i}SUM ) ]] || [[ ( ${i} -eq 256 ) ]] ; then
-		if [[ ( -r codecov.SHA${i}SUM.sig ) ]] ; then
-			# configure your CI evironment to trust the key at https://keybase.io/codecovsecurity/pgp_keys.asc
-            # FP: 2703 4E7F DB85 0E0B BC2C 62FF 806B B28A ED77 9869
-			# OR...
-			# Set CI=true to continue on missing keys
-			gpgv codecov.SHA${i}SUM.sig codecov.SHA${i}SUM || ${CI} || EXIT_CODE=126
-			rm -vf codecov.SHA${i}SUM.sig 2>/dev/null ;
-		fi
-		shasum -a $i -c --ignore-missing codecov.SHA${i}SUM || EXIT_CODE=126
-		rm -vf codecov.SHA${i}SUM 2>/dev/null ;
-	fi
-done
-
-if [[ ( ${EXIT_CODE} -eq 0 ) ]] ; then
-	chmod -v 751 ./codecov || EXIT_CODE=126
-fi
-
-if [[ ( -x $(command -v coverage3) ) ]] ; then
-	coverage3 combine 2>/dev/null || true
-	coverage3 xml 2>/dev/null || true
-elif [[ ( -x $(command -v coverage) ) ]] ; then
-	coverage combine 2>/dev/null || true
-	coverage xml 2>/dev/null || true
-fi
-
-if [[ ( ${EXIT_CODE} -eq 0 ) ]] ; then
-	./codecov -n "Custom Test Run" -X gcov -F pak,${CI_OS:-linux}-latest -Z || EXIT_CODE=10 ;
-fi
-
-
-unset _TEST_ROOT_DIR 2>/dev/null || true ;
-
-rm -f ./codecov 2>/dev/null > /dev/null || true ; wait ;
-rm -f ${LOCK_FILE} 2>/dev/null > /dev/null || true ; wait ;
-
-# goodbye
-exit ${EXIT_CODE:-255} ;
+# Main functionality
+{ { checkmake "${FILE}" | sed -e 's/   /:/g' | tr -s ':' |\
+cut -d: -f 3-5 ;} 2>/dev/null |\
+grep -F "${FILE}" | sed -E -e 's/^[[:space:]]+//g' |\
+xargs -I{} printf "::warning file=${FILE},title=LINT::%s ${EMSG}\n" {} >&2 ;}
+wait ;
