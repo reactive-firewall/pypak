@@ -321,6 +321,8 @@ build-docs: ./docs/ ./docs/Makefile docs-reqs
 
 clean-docs: ./docs/ ./docs/Makefile
 	$(QUIET)$(RM) ./docs/www/* 2>$(ERROR_LOG_PATH) || : ;
+	$(QUIET)$(RM) ./docs/_build/* 2>$(ERROR_LOG_PATH) || : ;
+	$(QUIET)$(RMDIR) ./docs/_build/ 2>$(ERROR_LOG_PATH) || : ;
 	$(QUIET)$(RMDIR) ./docs/www/ 2>$(ERROR_LOG_PATH) || : ;
 	$(QUIET)$(MAKE) -s -C ./docs/ -f Makefile clean 2>$(ERROR_LOG_PATH) || : ;
 	$(QUIET)$(WAIT) ;
