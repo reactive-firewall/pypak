@@ -183,7 +183,7 @@ MANIFEST.in: init
 
 build: init ./setup.py MANIFEST.in
 	$(QUIET)$(PYTHON) -W ignore -m build --sdist --wheel --no-isolation ./ || $(QUIET)$(PYTHON) -W ignore -m build ./ ;
-	$(QUITE)$(WAIT)
+	$(QUIET)$(WAIT)
 	$(QUIET)$(ECHO) "build DONE."
 
 init:
@@ -193,12 +193,12 @@ init:
 
 install: init build must_be_root
 	$(QUIET)$(PYTHON) -m pip install $(PIP_COMMON_FLAGS) $(PIP_ENV_FLAGS) -e "git+https://github.com/reactive-firewall/pak.git#egg=pak"
-	$(QUITE)$(WAIT)
+	$(QUIET)$(WAIT)
 	$(QUIET)$(ECHO) "$@: Done."
 
 uninstall:
 	$(QUIET)$(PYTHON) -m pip uninstall --use-pep517 $(PIP_ENV_FLAGS) --no-input -y pak 2>$(ERROR_LOG_PATH) || :
-	$(QUITE)$(WAIT)
+	$(QUIET)$(WAIT)
 	$(QUIET)$(ECHO) "$@: Done."
 
 purge: clean uninstall
@@ -213,7 +213,7 @@ purge: clean uninstall
 
 test: cleanup MANIFEST.in
 	$(QUIET)$(COVERAGE) run -p --source=pak -m unittest discover --verbose --buffer -s ./tests -t $(dir $(abspath $(lastword $(MAKEFILE_LIST)))) || $(PYTHON) -m unittest discover --verbose --buffer -s ./tests -t ./ || DO_FAIL="exit 2" ;
-	$(QUITE)$(WAIT) ;
+	$(QUIET)$(WAIT) ;
 	$(QUIET)$(DO_FAIL) ;
 	$(QUIET)$(COVERAGE) combine 2>$(ERROR_LOG_PATH) || : ;
 	$(QUIET)$(COVERAGE) report -m --include=* 2>$(ERROR_LOG_PATH) || : ;
@@ -239,13 +239,13 @@ docs-reqs: ./docs/ ./docs/requirements.txt init
 
 test-pytest: cleanup MANIFEST.in must_have_pytest test-reports
 	$(QUIET)$(PYTHON) -m pytest --cache-clear --doctest-glob=pak/*.py --doctest-modules --cov=. --cov-append --cov-report=xml --junitxml=test-reports/junit.xml -v --rootdir=. || DO_FAIL="exit 2" ;
-	$(QUITE)$(WAIT) ;
+	$(QUIET)$(WAIT) ;
 	$(QUIET)$(DO_FAIL) ;
 	$(QUIET)$(ECHO) "$@: Done."
 
 test-style: cleanup must_have_flake
 	$(QUIET)$(PYTHON) -m flake8 --ignore=W191,W391 --max-line-length=100 --verbose --count --config=.flake8.ini --show-source || DO_FAIL="exit 2" ;
-	$(QUITE)$(WAIT) ;
+	$(QUIET)$(WAIT) ;
 	$(QUIET)$(DO_FAIL) ;
 	$(QUIET)tests/check_spelling || true
 	$(QUIET)tests/check_cc_lines || true
@@ -348,7 +348,7 @@ user-install: build
 	$(QUIET)$(PYTHON) -m pip install $(PIP_COMMON_FLAGS) $(PIP_ENV_FLAGS) --user "pip>=22.0" "setuptools>=75.0" "wheel>=0.44" "build>=1.1.1" 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(PYTHON) -m pip install $(PIP_COMMON_FLAGS) $(PIP_ENV_FLAGS) --user -r "https://raw.githubusercontent.com/reactive-firewall/pak/stable/requirements.txt" 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(PYTHON) -m pip install $(PIP_COMMON_FLAGS) $(PIP_ENV_FLAGS) --user -e "git+https://github.com/reactive-firewall/pak.git#egg=pak"
-	$(QUITE)$(WAIT)
+	$(QUIET)$(WAIT)
 	$(QUIET)$(ECHO) "$@: Done."
 
 %:
