@@ -3,7 +3,7 @@
 name: Markdown Lint
 on:
   push:
-    branches: ["main", "master", draft, draft*]
+    branches: ["master", "stable", feature-*, patch-*, HOTFIX-*]
   pull_request:
     branches: ["main", "master"]
 
