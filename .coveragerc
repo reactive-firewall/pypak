@@ -38,9 +38,8 @@ ignore_errors = True
 partial_branches =
     # Have to re-enable the standard pragma rules
     pragma: no branch
-    skipcq: PYL-
     finally:
-    @
+    @\w+
     except unittest.SkipTest
     self.skipTest
     self.fail

@@ -44,8 +44,8 @@ try:
 			from setuptools.config import read_configuration
 		except Exception:
 			from setuptools.config.setupcfg import read_configuration
-except Exception as err:
-	raise NotImplementedError("""[CWE-440] Not Implemented.""") from err
+except ImportError as err:
+	raise ImportError("""[CWE-440] Required modules are missing.""") from err
 
 
 def readFile(filename):
