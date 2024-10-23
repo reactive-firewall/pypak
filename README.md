@@ -1,6 +1,7 @@
 # Python Accessory Kit (PAK)
 
 ## Table of Contents
+
 - [About](#about)
 - [Status](#status)
   - [Master Branch](#master-branch)
@@ -22,11 +23,13 @@
 
 ## About
 
-The Python Accessory Kit (PAK) is a collection of Python utilities and scripts designed to assist with various development tasks.
+The Python Accessory Kit (PAK) is a collection of Python utilities and scripts designed to assist
+with various development tasks.
 
 ## Status
 
 ### Master Branch
+
 [![status](https://travis-ci.org/reactive-firewall/pak.svg?branch=master)](https://travis-ci.org/reactive-firewall/pak)
 [![CircleCI](https://circleci.com/gh/reactive-firewall/pak/tree/master.svg?style=svg)](https://circleci.com/gh/reactive-firewall/pak/tree/master)
 [![Appveyor](https://ci.appveyor.com/api/projects/status/pak/branch/master?svg=true)](https://ci.appveyor.com/project/reactive-firewall/pak/branch/master)
@@ -42,6 +45,7 @@ The Python Accessory Kit (PAK) is a collection of Python utilities and scripts d
 ![commits-since](https://img.shields.io/github/commits-since/reactive-firewall/pak/stable.svg?maxAge=9000)
 
 ### Stable Branch
+
 [CI](gha link goes here)
 [![CircleCI](https://circleci.com/gh/reactive-firewall/pak/tree/stable.svg?style=svg)](https://circleci.com/gh/reactive-firewall/pak/tree/stable)
 [![Appveyor](https://ci.appveyor.com/api/projects/status/6gggp1wpbnnjokm4/branch/stable?svg=true)](https://ci.appveyor.com/project/reactive-firewall/pak/branch/stable)
@@ -66,7 +70,8 @@ pip install -r requirements.txt
 
 ## Usage
 
-PAK provides a set of modules and scripts that can be utilized in your Python projects. You can import the modules in your Python code as follows:
+PAK provides a set of modules and scripts that can be utilized in your Python projects. You can
+import the modules in your Python code as follows:
 
 ```python
 import pak
@@ -77,7 +82,8 @@ import pak
 ### Modules
 
 - `pak/__init__.py`: The initialization module for PAK.
-- `pak/anything.py`: Contains the `anything` and `nothing` classes, providing generic object implementations with extensive method overloading and testing examples.
+- `pak/anything.py`: Contains the `anything` and `nothing` classes, providing generic object
+implementations with extensive method overloading and testing examples.
 
 ### Scripts
 
@@ -128,7 +134,8 @@ make test-tox
 This project follows custom coding standards:
 
 - **CEP-8**: A style guide for Python code, similar to PEP 8 but with project-specific conventions.
-- **CEP-5**: A style guide for Bash scripts, detailing conventions for script structure and formatting.
+- **CEP-5**: A style guide for Bash scripts, detailing conventions for script structure and
+  formatting.
 
 Please ensure all Python and Bash code adheres to these standards.
 
@@ -147,7 +154,7 @@ Contributions are welcome! Please follow these steps:
 
 ## License
 
-[![License - MIT](https://img.shields.io/github/license/reactive-firewall/pak.svg?maxAge=2592000)](https://github.com/reactive-firewall/pak/blob/stable/LICENSE.md)
+[![MIT License](https://img.shields.io/github/license/reactive-firewall/pak.svg?maxAge=2592000)](https://github.com/reactive-firewall/pak/blob/stable/LICENSE.md)
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
@@ -155,9 +162,14 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 - **Third-party Acknowledgement**:
 
-  Some code, particularly in `tests/profiling.py`, was modified or derived from [Zapier's profiling-python-like-a-boss project](https://github.com/zapier/profiling-python-like-a-boss/tree/1ab93a1154). This code is under the BSD-3-Clause license. See the [LICENSE](https://github.com/zapier/profiling-python-like-a-boss/blob/1ab93a1154/LICENSE.md) for details.
+  Some code, particularly in `tests/profiling.py`, was modified or derived from
+  [Zapier's profiling-python-like-a-boss project](https://github.com/zapier/profiling-python-like-a-boss/tree/1ab93a1154).
+  This code is under the BSD-3-Clause license. See the
+  [LICENSE](https://github.com/zapier/profiling-python-like-a-boss/blob/1ab93a1154/LICENSE.md) for
+  details.
 
 - **Special Thanks**:
 
-  Thanks to all contributors and the open-source community for their invaluable support and resources.
+  Thanks to all contributors and the open-source community for their invaluable support and
+  resources.
 

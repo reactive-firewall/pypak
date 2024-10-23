@@ -1,6 +1,6 @@
 # Welcome to PAK's documentation
 
-### Documentation Resources
+## Documentation Resources
 
 * [README](./README): Introduction and installation instructions.
 * [License](./LICENSE): Licensing information and acknowledgments.
@@ -17,6 +17,6 @@ apidocs/index
 
 ---
 
-### Copyright (c) 2021-2024, Mr. Walls
+## Copyright (c) 2021-2024, Mr. Walls
 
 [![License - MIT](https://img.shields.io/github/license/reactive-firewall/pak.svg?maxAge=3600)](https://github.com/reactive-firewall/pak/blob/stable/LICENSE.md)
