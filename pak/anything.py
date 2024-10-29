@@ -21,13 +21,19 @@
 
 import weakref as _weakref
 
-__all__ = ["""nothing""", """anything""", """__module__""", """__name__""", """__doc__"""]
+__all__ = [
+	"""__package__""", """__module__""", """__name__""", """__doc__""",
+	"""nothing""", """anything"""
+]
 
 
-__module__ = """pak"""
+__package__ = """pak"""
 
 
-__name__ = """pak.anything"""
+__module__ = """pak.anything"""
+
+
+__file__ = """pak/anything.py"""
 
 
 __doc__ = """In OOP everything is something so the base object can be anything.
@@ -116,11 +122,7 @@ class nothing(object):
 
 	__name__ = """nothing"""
 
-#	__slots__ = ("""__dict__""", """__real_data__""", """__real_id__""",)
-
-	__real_id__ = None
-
-	__real_data__ = None
+	__slots__ = ("""__weakref__""", """__real_data__""", """__real_id__""",)
 
 	def __init__(self, **kwds):
 		"""
@@ -144,8 +146,6 @@ class nothing(object):
 		"""
 		self.__real_data__ = None
 		self.__real_id__ = None
-		for key,value in kwds.items():
-			super(anything, self).__setattr__(key, value)
 
 	def __get_data__(self):
 		"""
@@ -228,7 +228,7 @@ class nothing(object):
 						yield __quark_state, _weakref.ref(__quark)
 					except TypeError:
 						yield __quark_state, __quark
-		__volatile_keys__ = ["""__dict__""", """__real_data__""", """__real_id__"""]
+		__volatile_keys__ = nothing.__slots__ # ["""__dict__""", """__real_data__""", """__real_id__"""]
 		if not self.__real_data__:
 			self.__real_data__ = dict({})
 		self.__real_data__ = dict({k: v for k, v in __quantum_physics(value, __volatile_keys__)})
@@ -527,6 +527,7 @@ class nothing(object):
 		"""
 	)
 
+
 class anything(nothing):
 	"""
 		Generic anything object.
@@ -640,8 +641,11 @@ class anything(nothing):
 
 		"""
 		super(anything, self).__init__(*args, **kwds)
-		for key,value in kwds.items():
-			super(anything, self).__setattr__(key, value)
+		for key, value in kwds.items():
+			if key not in nothing.__slots__:
+				super(anything, self).__setattr__(key, value)
+			else:
+				super(nothing, self).__setattr__(key, value)
 
 	def __getattr__(self, name):
 		"""
@@ -686,7 +690,7 @@ class anything(nothing):
 
 			>>> test_fixture = pak.anything.anything()
 			>>> test_fixture.__getattr__("__dict__") #doctest: +ELLIPSIS
-			{...real_data...}
+			{}
 			>>> test_fixture.__dict__ is not None
 			True
 			>>> isinstance(test_fixture.__dict__, dict)
@@ -727,6 +731,8 @@ class anything(nothing):
 			return self.__getattribute__("""__id__""")
 		elif str("""__real_data__""") not in str(name) and str(name) in sorted(self.__data__.keys()):
 			return self.__getattribute__("""__data__""").__getitem__(name)
+		elif str(name) == str("""__dict__"""):
+			return self.__getattr__("""__data__""")
 		else:
 			return super(anything, self).__getattribute__(name)
 
@@ -776,6 +782,10 @@ class anything(nothing):
 			return super(anything, self).__getattribute__("""__data__""")
 		elif str(name) == str("""__id__""") or str(name) == str("""id"""):
 			return super(anything, self).__getattribute__("""__id__""")
+		elif str(name) == str("""__dict__"""):
+			return self.__getattribute__("""__data__""")
+		elif str(name) == str("""__real_data__"""):
+			return super(nothing, self).__getattribute__("""__real_data__""")
 		else:
 			return super(anything, self).__getattribute__(name)
 
@@ -801,14 +811,16 @@ class anything(nothing):
 			>>> print(any_thing_fixture.__data__) #doctest: +ELLIPSIS
 			{...\'junk\': \'5\'...}
 			>>> print(any_thing_fixture.__dict__) #doctest: +ELLIPSIS
-			{...}
+			{...\'junk\': \'5\'...}
 			>>> any_thing_fixture.__id__ is not None
 			True
-			>>> any_thing_fixture.__junk__ = "5"
+			>>> any_thing_fixture.__junk__ = "6"
 			>>> print(any_thing_fixture.__dict__) #doctest: +ELLIPSIS
-			{...\'__junk__\': \'5\'...}
+			{...\'junk\': \'5\'...}
 			>>> print(any_thing_fixture.__data__) #doctest: +ELLIPSIS
 			{...\'junk\': \'5\'...}
+			>>> print(any_thing_fixture.__junk__)
+			6
 			>>> any_thing_fixture.__id__ = 123456789 #doctest: +ELLIPSIS, +IGNORE_EXCEPTION_DETAIL
 			Traceback (most recent call last):
 			...
@@ -831,6 +843,10 @@ class anything(nothing):
 			>>> any_thing_fixture.__junk__ = "2"
 			>>> print(any_thing_fixture.__data__) #doctest: +ELLIPSIS
 			{...\'junk\': \'1\'...}
+			>>> print(any_thing_fixture.__dict__) #doctest: +ELLIPSIS
+			{...\'junk\': \'1\'...}
+			>>> print(any_thing_fixture.__junk__)
+			2
 			>>> any_thing_fixture.junk = "3"
 			>>> print(any_thing_fixture.__data__) #doctest: +ELLIPSIS
 			{...\'junk\': \'3\'...}
@@ -871,22 +887,24 @@ class anything(nothing):
 			>>>
 
 		"""
-		if str(name) == str("""__data__""") or str(name) == str("""data"""):
+		if str(name) == str("""__id__""") or str(name) == str("""id"""):
+			super(nothing, self).__real_id__ = value
+		elif str(name) == str("""__data__""") or str(name) == str("""data"""):
 			super(anything, self).__setattr__("""__data__""", value)
 		elif str(name) == str("""__dict__"""):
-			super(anything, self).__setattr__("""__dict__""", value)
+			self.__setattr__("""__data__""", value)
 		elif str("__real_data__") not in str(name) and str(name) in sorted(self.__data__.keys()):
 			__old_data = self.__getattribute__("""__data__""")
 			__old_data.__setitem__(name, value)
 			self.__setattr__("""__data__""", __old_data)
-		elif str(name) in sorted(self.__dict__.keys()):
+		elif str("__real_data__") not in str(name) and str(name) in sorted(self.__dict__.keys()):
 			super(anything, self).__setattr__(name, value)
 		elif str("__") not in str(name):
 			__old_data = self.__getattribute__("""__data__""")
 			__old_data.__setitem__(name, value)
 			self.__setattr__("""__data__""", __old_data)
 		else:
-			super(anything, self).__setattr__(name, value)
+			super(nothing, self).__setattr__(name, value)
 
 	def __delattr__(self, name):
 		"""
@@ -908,9 +926,11 @@ class anything(nothing):
 			>>> any_thing_fixture.junk = "5"
 			>>> print(any_thing_fixture.__data__) #doctest: +ELLIPSIS
 			{...\'junk\': \'5\'...}
-			>>> any_thing_fixture.__junk__ = "5"
+			>>> any_thing_fixture.__junk__ = "6"
 			>>> print(any_thing_fixture.__dict__) #doctest: +ELLIPSIS
-			{...\'__junk__\': \'5\'...}
+			{...\'junk\': \'5\'...}
+			>>> print(any_thing_fixture.__junk__)
+			6
 			>>> any_thing_fixture.__id__ is not None
 			True
 			>>> del any_thing_fixture.__junk__
@@ -934,7 +954,7 @@ class anything(nothing):
 			{...\'junk\': \'5\'...}
 			>>> any_thing_fixture.__junk__ = "5"
 			>>> print(any_thing_fixture.__dict__) #doctest: +ELLIPSIS
-			{...\'__junk__\': \'5\'...}
+			{...\'junk\': \'5\'...}
 			>>> any_thing_fixture.__id__ = 123456789 #doctest: +ELLIPSIS, +IGNORE_EXCEPTION_DETAIL
 			Traceback (most recent call last):
 			...
@@ -962,9 +982,12 @@ class anything(nothing):
 			>>>
 
 			"""
-		if str(name) == str("""__id__""") or str(name) == str("""id"""): pass
+		if str(name) == str("""__id__""") or str(name) == str("""id"""):
+			pass
 		elif str(name) == str("""__data__""") or str(name) == str("""data"""):
 			super(anything, self).__delattr__("""__data__""")
+		elif str(name) == str("""__dict__"""):
+			self.__delattr__("""__data__""")
 		elif str("__real_data__") not in str(name) and str(name) in sorted(self.__data__.keys()):
 			super(anything, self).__data__.__delitem__(name)
 		elif str(name) in sorted(self.__dict__.keys()):
@@ -975,10 +998,7 @@ class anything(nothing):
 			).format(nm=name)
 			raise AttributeError(__PIAP_CWE_476_MSG__)
 		else:
-			__PIAP_CWE_476_MSG__ = str(
-				"""[CWE-476] Data key is not valid"""
-				).format(nm=name)
-			raise AttributeError(__PIAP_CWE_476_MSG__)
+			super(nothing, self).__delattr__(name)
 
 	def __index__(self):
 		"""
@@ -1082,7 +1102,7 @@ class anything(nothing):
 			>>>
 
 		"""
-		return self.__getattribute__("""__id__""")
+		return super(anything, self).__getattribute__("""__id__""")
 
 	def __del__(self):
 		"""
@@ -1253,7 +1273,7 @@ class anything(nothing):
 			>>>
 
 		"""
-		__volatile_keys__ = ["""__data__""", """__id__"""]
+		__volatile_keys__ = ["""__real_data__""", """__data__""", """__id__"""]
 		return dict({k: v for k, v in self.__data__.items() if k not in __volatile_keys__})
 
 	def __setstate__(self, state):
@@ -1305,14 +1325,14 @@ class anything(nothing):
 			>>>
 
 		"""
-		__skip_keys__ = ["""__data__""", """__id__"""]
+		__skip_keys__ = ["""__real_data__""", """__data__""", """__id__"""]
 		self.__setattr__(
 						"""__data__""",
 						dict(
-							  {k: v for k, v in state.items() if k not in __skip_keys__}
+							{k: v for k, v in state.items() if k not in __skip_keys__}
 						)
 		)
-	#self.__id__ = id((super(self.__class__, self).__class__, (state)))
+		self.__id__ = id((super(self.__class__, self).__class__, (state)))
 
 	def __str__(self):
 		"""

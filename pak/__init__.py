@@ -23,6 +23,7 @@ __all__ = [
 	"""__doc__""", """anything""", """__super_import__"""
 ]
 
+
 __package__ = """pak"""
 
 
@@ -100,10 +101,10 @@ def __super_import__(module_named_x):
 		A wrapper for importing that allows reuse. WARNING: Only intended for pak internals.
 
 		pak should still be imported the normal way:
-		
+
 		:Param module_named_x: - the name of the module
 		:Returns module: the module
-		
+
 		>>> import pak
 		>>>
 
@@ -158,11 +159,11 @@ except Exception as ImportErr:
 	print(str((ImportErr.args)))
 	ImportErr = None
 	del ImportErr
-	raise ImportError(str(u'pak Failed to Import'))
+	raise ImportError(str("pak Failed to Import"))
 
 
 try:
-	if 'pak.anything' not in sys.modules:
+	if """pak.anything""" not in sys.modules:
 		from . import anything as anything
 	else:  # pragma: no branch
 		anything = sys.modules["""pak.anything"""]
@@ -171,7 +172,7 @@ except Exception as importErr:
 	import pak.anything as anything
 
 
-if __name__ in u'__main__':
-	raise ImportError(str(u'Failed to become an entrypoint instead of a Library. No Magic here.'))
+if __name__ in "__main__":
+	raise ImportError(str("Failed to become an entrypoint instead of a Library. No Magic here."))
 	exit(255)  # nocov
 
