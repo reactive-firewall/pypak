@@ -18,6 +18,8 @@ on:
     # The branches below must be a subset of the branches above
     branches: ["master", "stable", "features-all"]
 
+permissions: {}
+
 jobs:
   analyze:
     name: Analyze
