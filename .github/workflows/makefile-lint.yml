@@ -16,7 +16,7 @@ jobs:
       statuses: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.1
+      - uses: actions/checkout@v4.2.2
       - name: Install Apt-Get Dependencies
         run: |
           sudo apt-get update
@@ -25,7 +25,7 @@ jobs:
       - name: Lint Workflow YAML
         run: |
           yamllint -f github --no-warnings .github/workflows/makefile-lint.yml
-      - uses: actions/checkout@v4.2.1
+      - uses: actions/checkout@v4.2.2
       - name: Install checkmake
         if: ${{ success() }}
         env:
