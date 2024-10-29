@@ -276,6 +276,7 @@ cleanup:
 	$(QUIET)$(RM) tests/.DS_Store 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RM) tests/*/.DS_Store 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RM) pak.egg-info/* 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(RM) /tmp/test_data.pkl 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RM) ./*.pyc 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RM) ./.coverage 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RM) ./coverage*.xml 2>$(ERROR_LOG_PATH) || true

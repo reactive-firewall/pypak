@@ -169,7 +169,7 @@ class nothing(object):
 			>>>
 
 		"""
-		if not self.__real_data__:
+		if not getattr(self, """__real_data__""", None):
 			return dict({})
 		return self.__real_data__
 
@@ -229,7 +229,7 @@ class nothing(object):
 					except TypeError:
 						yield __quark_state, __quark
 		__volatile_keys__ = nothing.__slots__ # ["""__dict__""", """__real_data__""", """__real_id__"""]
-		if not self.__real_data__:
+		if not getattr(self, """__real_data__""", None):
 			self.__real_data__ = dict({})
 		self.__real_data__ = dict({k: v for k, v in __quantum_physics(value, __volatile_keys__)})
 		self.__real_id__ = id(self.__real_data__)
@@ -317,7 +317,7 @@ class nothing(object):
 
 	def __set_id__(self, value):
 		"""
-			Wrapper for object.__get__ descriptor
+			Wrapper for object.__set__ descriptor
 
 			Testing:
 
@@ -375,7 +375,7 @@ class nothing(object):
 
 	def __del_id__(self):
 		"""
-			Wrapper for object.__get__ descriptor
+			Wrapper for object.__del__ descriptor
 
 			Testing:
 
@@ -821,10 +821,7 @@ class anything(nothing):
 			{...\'junk\': \'5\'...}
 			>>> print(any_thing_fixture.__junk__)
 			6
-			>>> any_thing_fixture.__id__ = 123456789 #doctest: +ELLIPSIS, +IGNORE_EXCEPTION_DETAIL
-			Traceback (most recent call last):
-			...
-			AttributeError:...is read only...
+			>>> any_thing_fixture.__id__ = 123456789
 			>>>
 			>>> any_thing_fixture.__id__ is not None
 			True
@@ -850,10 +847,7 @@ class anything(nothing):
 			>>> any_thing_fixture.junk = "3"
 			>>> print(any_thing_fixture.__data__) #doctest: +ELLIPSIS
 			{...\'junk\': \'3\'...}
-			>>> any_thing_fixture.__id__ = 123456789 #doctest: +ELLIPSIS, +IGNORE_EXCEPTION_DETAIL
-			Traceback (most recent call last):
-			...
-			AttributeError:...is read only...
+			>>> any_thing_fixture.__id__ = 123456789
 			>>>
 			>>> any_thing_fixture.__id__ is not None
 			True
@@ -862,7 +856,7 @@ class anything(nothing):
 			>>> any_thing_fixture.__id__ = 98765421.0 #doctest: +ELLIPSIS, +IGNORE_EXCEPTION_DETAIL
 			Traceback (most recent call last):
 			...
-			AttributeError:...is read only...
+			ValueError:...integer...
 			>>>
 			>>> print(any_thing_fixture.__data__) #doctest: +ELLIPSIS
 			{...\'junk\': \'3\'...}
@@ -888,7 +882,10 @@ class anything(nothing):
 
 		"""
 		if str(name) == str("""__id__""") or str(name) == str("""id"""):
-			super(nothing, self).__real_id__ = value
+			if (value is None) or isinstance(value, int):
+				super(nothing, self).__setattr__("""__real_id__""", value)
+			else:
+				raise ValueError("""'__id__' must be an integer!""")
 		elif str(name) == str("""__data__""") or str(name) == str("""data"""):
 			super(anything, self).__setattr__("""__data__""", value)
 		elif str(name) == str("""__dict__"""):
@@ -955,10 +952,7 @@ class anything(nothing):
 			>>> any_thing_fixture.__junk__ = "5"
 			>>> print(any_thing_fixture.__dict__) #doctest: +ELLIPSIS
 			{...\'junk\': \'5\'...}
-			>>> any_thing_fixture.__id__ = 123456789 #doctest: +ELLIPSIS, +IGNORE_EXCEPTION_DETAIL
-			Traceback (most recent call last):
-			...
-			AttributeError:...is read only...
+			>>> any_thing_fixture.__id__ = 123456789
 			>>>
 			>>> any_thing_fixture.__id__ is not None
 			True
@@ -1326,11 +1320,11 @@ class anything(nothing):
 
 		"""
 		__skip_keys__ = ["""__real_data__""", """__data__""", """__id__"""]
-		self.__setattr__(
-						"""__data__""",
-						dict(
-							{k: v for k, v in state.items() if k not in __skip_keys__}
-						)
+		super(anything, self).__setattr__(
+			"""__data__""",
+			dict(
+				{k: v for k, v in state.items() if k not in __skip_keys__}
+			)
 		)
 		self.__id__ = id((super(self.__class__, self).__class__, (state)))
 
