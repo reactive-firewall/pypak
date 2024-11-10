@@ -36,7 +36,7 @@ __name__ = """pypak"""
 global __version__
 
 
-__version__ = """1.0.0"""
+__version__ = """2.0.0r1"""
 
 
 __prolog__ = str("""pypak library version {version}.""").format(version=__version__)
