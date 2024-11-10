@@ -91,9 +91,9 @@ __doc__ = __prolog__ + """
 try:
 	import sys
 	if sys.__name__ is None:
-		raise ImportError("OMG! we could not import os. We're like in the matrix!")
+		raise ImportError("OMG! we could not import os. We're like in the matrix!") from None
 except Exception as err:
-	raise ImportError(err)
+	raise ImportError(err) from err
 
 
 def __super_import__(module_named_x):
@@ -128,8 +128,8 @@ def __super_import__(module_named_x):
 		globals()[module_named_x] = module_obj
 		return module_obj
 	except Exception:
-		raise _panic_fixture
-	raise _panic_fixture
+		raise _panic_fixture from None
+	raise _panic_fixture from None
 
 
 os = __super_import__("""os""")
@@ -152,14 +152,12 @@ try:
 				if __sys_path__ not in sys.path:
 					sys.path.insert(0, __sys_path__)
 	except Exception:
-		raise ImportError("pypak failed to import.")
+		raise ImportError("pypak failed to import.") from None
 except Exception as ImportErr:
 	print(str(type(ImportErr)))
 	print(str(ImportErr))
 	print(str((ImportErr.args)))
-	ImportErr = None
-	del ImportErr
-	raise ImportError(str("pypak Failed to Import"))
+	raise ImportError(str("pypak Failed to Import")) from ImportErr
 
 
 try:
@@ -173,6 +171,8 @@ except Exception as importErr:
 
 
 if __name__ in "__main__":
-	raise ImportError(str("Failed to become an entrypoint instead of a Library. No Magic here."))
+	raise ImportError(
+		str("Failed to become an entrypoint instead of a Library. No Magic here.")
+	) from None
 	exit(255)  # nocov
 

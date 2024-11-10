@@ -27,12 +27,12 @@ try:
 		del ImportErr
 		from . import context
 	if context.__name__ is None:
-		raise ImportError("[CWE-758] Failed to import context")
+		raise ImportError("[CWE-758] Failed to import context") from None
 	else:
 		from context import unittest as unittest
 		from context import sys as _sys
-except Exception:  # pragma: no branch
-	raise ImportError("[CWE-758] Failed to import test context")
+except Exception as err:  # pragma: no branch
+	raise ImportError("[CWE-758] Failed to import test context") from err
 
 
 class BasicTestSuite(context.BasicUsageTestSuite):

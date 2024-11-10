@@ -371,7 +371,7 @@ class nothing(object):
 			>>>
 
 		"""
-		raise AttributeError("""'__id__' is read only""")
+		raise AttributeError("""'__id__' is read only""") from None
 
 	def __del_id__(self):
 		"""
@@ -885,7 +885,7 @@ class anything(nothing):
 			if (value is None) or isinstance(value, int):
 				super(nothing, self).__setattr__("""__real_id__""", value)
 			else:
-				raise ValueError("""'__id__' must be an integer!""")
+				raise ValueError("""'__id__' must be an integer!""") from None
 		elif str(name) == str("""__data__""") or str(name) == str("""data"""):
 			super(anything, self).__setattr__("""__data__""", value)
 		elif str(name) == str("""__dict__"""):
@@ -990,7 +990,7 @@ class anything(nothing):
 			__PIAP_CWE_476_MSG__ = str(
 				"""[CWE-476] Data key is not valid (posible CWE-825)"""
 			).format(nm=name)
-			raise AttributeError(__PIAP_CWE_476_MSG__)
+			raise AttributeError(__PIAP_CWE_476_MSG__) from None
 		else:
 			super(nothing, self).__delattr__(name)
 

@@ -32,9 +32,9 @@
 try:
 	import sys
 	if sys.__name__ is None:  # pragma: no branch
-		raise ImportError("[CWE-758] OMG! we could not import sys! ABORT. ABORT.")
+		raise ImportError("[CWE-758] OMG! we could not import sys! ABORT. ABORT.") from None
 except Exception as err:  # pragma: no branch
-	raise ImportError(err)
+	raise ImportError(err) from err
 
 
 try:
@@ -42,25 +42,25 @@ try:
 		import os
 	else:  # pragma: no branch
 		os = sys.modules["""os"""]
-except Exception:  # pragma: no branch
-	raise ImportError("[CWE-758] OS Failed to import.")
+except Exception as err:  # pragma: no branch
+	raise ImportError("[CWE-758] OS Failed to import.") from err
 
 
 try:
 	import time
 	if time.__name__ is None:  # pragma: no branch
-		raise NotImplementedError("[CWE-440] We could not import time. Are we in the speed-force!")
+		raise NotImplementedError("[CWE-440] We could not import time.") from None
 except Exception as err:
-	raise ImportError(err)
+	raise ImportError(err) from err
 	exit(3)
 
 
 try:
 	import cProfile
 	if cProfile.__name__ is None:  # pragma: no branch
-		raise NotImplementedError("[CWE-440] We could not import cProfile. ABORT!")
+		raise NotImplementedError("[CWE-440] We could not import cProfile. ABORT!") from None
 except Exception as err:  # pragma: no branch
-	raise ImportError(err)
+	raise ImportError(err) from err
 	exit(3)
 
 
@@ -74,11 +74,9 @@ try:
 		print(str(ImportErr))
 		print(str((ImportErr.args)))
 		print(str(''))
-		ImportErr = None
-		del ImportErr
-		raise ImportError(str("[CWE-758] Profile module failed completely."))
-except Exception:  # pragma: no branch
-	raise ImportError("[CWE-440] Failed to import test profiling")
+		raise ImportError(str("[CWE-758] Profile module failed completely.")) from ImportErr
+except Exception as err:  # pragma: no branch
+	raise ImportError("[CWE-440] Failed to import test profiling") from err
 
 
 class timewith():
@@ -231,7 +229,7 @@ except ImportError:  # pragma: no cover
 
 def main(argv=None):  # pragma: no cover
 	"""The Main Event makes no sense to profiling."""
-	raise NotImplementedError("CRITICAL - test profiling main() not implemented. yet?")
+	raise NotImplementedError("CRITICAL - test profiling main() not implemented. yet?") from None
 
 
 if __name__ in '__main__':  # pragma: no cover
