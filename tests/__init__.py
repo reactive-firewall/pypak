@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Python Acessory Kit Repo
+# Python Programming Acessory Kit Repo
 # ..................................
-# Copyright (c) 2018-2023, Kendrick Walls
+# Copyright (c) 2018-2023, reactive-firewall
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 # ..........................................
-# http://www.github.com/reactive-firewall/pak/LICENSE.md
+# http://www.github.com/reactive-firewall/pypak/LICENSE.md
 # ......................................................................
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,15 +22,15 @@
 """Python Repo Testing Module."""
 
 __module__ = """tests"""
-"""This is pak testing module Template."""
+"""This is pypak testing module Template."""
 
 
 try:
 	import sys
 	if sys.__name__ is None:  # pragma: no branch
-		raise ImportError("[CWE-440] OMG! we could not import sys. ABORT. ABORT.")
+		raise ImportError("[CWE-440] OMG! we could not import sys. ABORT. ABORT.") from None
 except Exception as err:  # pragma: no branch
-	raise ImportError(err)
+	raise ImportError(err) from err
 
 
 try:
@@ -38,8 +38,8 @@ try:
 		import os
 	else:  # pragma: no branch
 		os = sys.modules["""os"""]
-except Exception:  # pragma: no branch
-	raise ImportError("[CWE-440] OS Failed to import.")
+except Exception as err:  # pragma: no branch
+	raise ImportError("[CWE-440] OS Failed to import.") from err
 
 
 try:
@@ -47,8 +47,8 @@ try:
 		import unittest
 	else:  # pragma: no branch
 		unittest = sys.modules["""unittest"""]
-except Exception:  # pragma: no branch
-	raise ImportError("[CWE-440] unittest Failed to import.")
+except Exception as err:  # pragma: no branch
+	raise ImportError("[CWE-440] unittest Failed to import.") from err
 
 
 try:
@@ -56,24 +56,24 @@ try:
 		import functools
 	else:  # pragma: no branch
 		functools = sys.modules["""functools"""]
-except Exception:  # pragma: no branch
-	raise ImportError("[CWE-440] functools Failed to import.")
+except Exception as err:  # pragma: no branch
+	raise ImportError("[CWE-440] functools Failed to import.") from err
 
 
 try:
-	if 'pak' not in sys.modules:
-		import pak
+	if 'pypak' not in sys.modules:
+		import pypak
 	else:  # pragma: no branch
-		pak = sys.modules["""pak"""]
-except Exception:  # pragma: no branch
-	raise ImportError("[CWE-440] PAK Failed to import.")
+		pypak = sys.modules["""pypak"""]
+except Exception as err:  # pragma: no branch
+	raise ImportError("[CWE-440] pypak Failed to import.") from err
 
 
 try:
 	_DIR_NAME = str(".")
 	_PARENT_DIR_NAME = str("..")
 	_BASE_NAME = os.path.dirname(__file__)
-	if 'pak' in __file__:
+	if 'pypak' in __file__:
 		sys.path.insert(0, os.path.abspath(os.path.join(_BASE_NAME, _PARENT_DIR_NAME)))
 	if 'tests' in __file__:
 		sys.path.insert(0, os.path.abspath(os.path.join(_BASE_NAME, _DIR_NAME)))
@@ -88,16 +88,14 @@ try:
 			if unit_test.__name__ is None:  # pragma: no branch
 				raise ImportError(
 					str("Test module failed to import even the {} tests.").format(str(unit_test))
-				)
+				) from None
 		except Exception as impErr:  # pragma: no branch
 			print(str(''))
 			print(str(type(impErr)))
 			print(str(impErr))
 			print(str((impErr.args)))
 			print(str(''))
-			impErr = None
-			del impErr
-			raise ImportError(str("[CWE-758] Test module failed completely."))
+			raise ImportError(str("[CWE-758] Test module failed completely.")) from impErr
 except Exception as badErr:  # pragma: no branch
 	print(str(''))
 	print(str(type(badErr)))
@@ -122,6 +120,6 @@ def load_tests(loader, tests, pattern):
 	for test_class in test_cases:
 		tests = loader.loadTestsFromTestCase(test_class)
 		suite.addTests(tests)
-	suite.addTests(doctest.DocTestSuite(module=pak, test_finder=finder))
+	suite.addTests(doctest.DocTestSuite(module=pypak, test_finder=finder))
 	return suite
 

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Python Acessory Kit Repo
+# Python Programming Acessory Kit Repo
 # ..................................
-# Copyright (c) 2018-2023, Kendrick Walls
+# Copyright (c) 2018-2023, reactive-firewall
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 # ..........................................
-# http://www.github.com/reactive-firewall/pak/LICENSE.md
+# http://www.github.com/reactive-firewall/pypak/LICENSE.md
 # ..........................................
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -37,7 +37,7 @@ __doc__ = """
 		>>> from context import subprocess as _subprocess
 		>>>
 
-		>>> from context import pak as _pak
+		>>> from context import pypak as _pypak
 		>>>
 
 		>>> from context import profiling as _profiling
@@ -48,9 +48,9 @@ __doc__ = """
 try:
 	import sys
 	if sys.__name__ is None:  # pragma: no branch
-		raise ImportError("[CWE-758] OMG! we could not import sys! ABORT. ABORT.")
+		raise ImportError("[CWE-758] OMG! we could not import sys! ABORT. ABORT.") from None
 except Exception as err:  # pragma: no branch
-	raise ImportError(err)
+	raise ImportError(err) from err
 
 
 try:
@@ -58,8 +58,8 @@ try:
 		import os
 	else:  # pragma: no branch
 		os = sys.modules["""os"""]
-except Exception:  # pragma: no branch
-	raise ImportError("[CWE-440] OS Failed to import.")
+except Exception as err:  # pragma: no branch
+	raise ImportError("[CWE-440] OS Failed to import.") from err
 
 
 try:
@@ -67,8 +67,8 @@ try:
 		import unittest
 	else:  # pragma: no branch
 		unittest = sys.modules["""unittest"""]
-except Exception:  # pragma: no branch
-	raise ImportError("[CWE-440] unittest Failed to import.")
+except Exception as err:  # pragma: no branch
+	raise ImportError("[CWE-440] unittest Failed to import.") from err
 
 
 try:
@@ -76,8 +76,8 @@ try:
 		from multiprocessing import Process as Process
 	else:  # pragma: no branch
 		Process = sys.modules["""Process"""]
-except Exception:  # pragma: no branch
-	raise ImportError("[CWE-440] Process Failed to import.")
+except Exception as err:  # pragma: no branch
+	raise ImportError("[CWE-440] Process Failed to import.") from err
 
 
 try:
@@ -85,17 +85,17 @@ try:
 		import subprocess
 	else:  # pragma: no branch
 		subprocess = sys.modules["""subprocess"""]
-except Exception:  # pragma: no branch
-	raise ImportError("[CWE-440] subprocess Failed to import.")
+except Exception as err:  # pragma: no branch
+	raise ImportError("[CWE-440] subprocess Failed to import.") from err
 
 
 try:
-	if 'pak' not in sys.modules:
-		import pak
+	if 'pypak' not in sys.modules:
+		import pypak
 	else:  # pragma: no branch
-		pak = sys.modules["""pak"""]
-except Exception:  # pragma: no branch
-	raise ImportError("[CWE-440] Python PAK Repo Failed to import.")
+		pypak = sys.modules["""pypak"""]
+except Exception as err:  # pragma: no branch
+	raise ImportError("[CWE-440] Python pypak Repo Failed to import.") from err
 
 
 try:
@@ -103,8 +103,8 @@ try:
 		import profiling as profiling
 	else:  # pragma: no branch
 		profiling = sys.modules["""tests.profiling"""]
-except Exception:  # pragma: no branch
-	raise ImportError("[CWE-440] profiling Failed to import.")
+except Exception as err:  # pragma: no branch
+	raise ImportError("[CWE-440] profiling Failed to import.") from err
 
 
 __BLANK = str("""""")
@@ -249,7 +249,7 @@ def getPythonCommand():
 def checkCovCommand(args=[None]):
 	"""Utility Function."""
 	if sys.__name__ is None:  # pragma: no branch
-		raise ImportError("[CWE-758] Failed to import system. WTF?!!")
+		raise ImportError("[CWE-758] Failed to import system. WTF?!!") from None
 	if str("coverage") in args[0]:
 		i = 1
 		if str("{} -m coverage").format(str(sys.executable)) in str(args[0]):  # pragma: no branch
@@ -261,7 +261,7 @@ def checkCovCommand(args=[None]):
 			args[0] = str(getCoverageCommand())
 		extra_args = [
 			"""run""", """-p""",
-			"""--context=Integration""", """--source=pak"""
+			"""--context=Integration""", """--source=pypak"""
 		]
 		# PEP-279 - see https://www.python.org/dev/peps/pep-0279/
 		for k, ktem in enumerate(extra_args):
@@ -322,7 +322,7 @@ def checkPythonFuzzing(args=[None], stderr=None):
 			theOutput = subprocess.check_output(args, stderr=stderr)
 	except BaseException as err:  # pragma: no branch
 		theOutput = None
-		raise RuntimeError(err)
+		raise RuntimeError(err) from err
 	theOutput = checkStrOrByte(theOutput)
 	return theOutput
 

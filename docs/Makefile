@@ -2,13 +2,13 @@
 
 # Makefile for Sphinx documentation
 # ..................................
-# Copyright (c) 2024, Mr. Walls
+# Copyright (c) 2024, reactive-firewall
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 # ..........................................
-# http://www.github.com/reactive-firewall/pak/LICENSE.md
+# http://www.github.com/reactive-firewall/pypak/LICENSE.md
 # ..........................................
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,7 +24,7 @@ PAPER         =
 BUILDDIR      = _build
 SRCDIR        = .
 # change this to the directory you store python code in
-PROJECT_DOC_SRC_DIR = pak
+PROJECT_DOC_SRC_DIR = pypak
 
 # By default, the documentation links to the `stable` branch on GitHub.
 # To override this and link to the specific commit you're working on,

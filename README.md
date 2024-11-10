@@ -1,4 +1,4 @@
-# Python Accessory Kit (PAK)
+# Python Programming Accessory Kit (PyPak)
 
 ## Table of Contents
 
@@ -23,43 +23,43 @@
 
 ## About
 
-The Python Accessory Kit (PAK) is a collection of Python utilities and scripts designed to assist
+The Python Accessory Kit (pypak) is a collection of Python utilities and scripts designed to assist
 with various development tasks.
 
 ## Status
 
 ### Master Branch
 
-[![status](https://travis-ci.org/reactive-firewall/pak.svg?branch=master)](https://travis-ci.org/reactive-firewall/pak)
-[![CircleCI](https://circleci.com/gh/reactive-firewall/pak/tree/master.svg?style=svg)](https://circleci.com/gh/reactive-firewall/pak/tree/master)
-[![Appveyor](https://ci.appveyor.com/api/projects/status/pak/branch/master?svg=true)](https://ci.appveyor.com/project/reactive-firewall/pak/branch/master)
-[![Python 3](https://pyup.io/repos/github/reactive-firewall/pak/python-3-shield.svg)](https://pyup.io/repos/github/reactive-firewall/pak/)
-[![Updates](https://pyup.io/repos/github/reactive-firewall/pak/shield.svg)](https://pyup.io/repos/github/reactive-firewall/pak/)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/pak/test_coverage)](https://codeclimate.com/github/reactive-firewall/pak/test_coverage)
-[![Code Coverage](https://codecov.io/gh/reactive-firewall/pak/branch/master/graph/badge.svg)](https://codecov.io/gh/reactive-firewall/pak/branch/master/)
-[![Coverage Status](https://coveralls.io/repos/github/reactive-firewall/pak/badge.svg?branch=master)](https://coveralls.io/github/reactive-firewall/pak?branch=master)
-[![Code Climate](https://codeclimate.com/github/reactive-firewall/pak/badges/gpa.svg)](https://codeclimate.com/github/reactive-firewall/pak)
-[![CodeFactor](https://www.codefactor.io/repository/github/reactive-firewall/pak/badge)](https://www.codefactor.io/repository/github/reactive-firewall/pak)
-[![codebeat badge](https://codebeat.co/badges/da1d8064-5736-49fd-9d61-d046aca38afb)](https://codebeat.co/projects/github-com-reactive-firewall-pak-master)
-![Size](https://img.shields.io/github/languages/code-size/reactive-firewall/pak.svg)
-![commits-since](https://img.shields.io/github/commits-since/reactive-firewall/pak/stable.svg?maxAge=9000)
+[![status](https://travis-ci.org/reactive-firewall/pypak.svg?branch=master)](https://travis-ci.org/reactive-firewall/pypak)
+[![CircleCI](https://circleci.com/gh/reactive-firewall/pypak/tree/master.svg?style=svg)](https://circleci.com/gh/reactive-firewall/pypak/tree/master)
+[![Appveyor](https://ci.appveyor.com/api/projects/status/pypak/branch/master?svg=true)](https://ci.appveyor.com/project/reactive-firewall/pypak/branch/master)
+[![Python 3](https://pyup.io/repos/github/reactive-firewall/pypak/python-3-shield.svg)](https://pyup.io/repos/github/reactive-firewall/pypak/)
+[![Updates](https://pyup.io/repos/github/reactive-firewall/pypak/shield.svg)](https://pyup.io/repos/github/reactive-firewall/pypak/)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/pypak/test_coverage)](https://codeclimate.com/github/reactive-firewall/pypak/test_coverage)
+[![Code Coverage](https://codecov.io/gh/reactive-firewall/pypak/branch/master/graph/badge.svg)](https://codecov.io/gh/reactive-firewall/pypak/branch/master/)
+[![Coverage Status](https://coveralls.io/repos/github/reactive-firewall/pypak/badge.svg?branch=master)](https://coveralls.io/github/reactive-firewall/pypak?branch=master)
+[![Code Climate](https://codeclimate.com/github/reactive-firewall/pypak/badges/gpa.svg)](https://codeclimate.com/github/reactive-firewall/pypak)
+[![CodeFactor](https://www.codefactor.io/repository/github/reactive-firewall/pypak/badge)](https://www.codefactor.io/repository/github/reactive-firewall/pypak)
+[![codebeat badge](https://codebeat.co/badges/da1d8064-5736-49fd-9d61-d046aca38afb)](https://codebeat.co/projects/github-com-reactive-firewall-pypak-master)
+![Size](https://img.shields.io/github/languages/code-size/reactive-firewall/pypak.svg)
+![commits-since](https://img.shields.io/github/commits-since/reactive-firewall/pypak/stable.svg?maxAge=9000)
 
 ### Stable Branch
 
 [CI](gha link goes here)
-[![CircleCI](https://circleci.com/gh/reactive-firewall/pak/tree/stable.svg?style=svg)](https://circleci.com/gh/reactive-firewall/pak/tree/stable)
-[![Appveyor](https://ci.appveyor.com/api/projects/status/6gggp1wpbnnjokm4/branch/stable?svg=true)](https://ci.appveyor.com/project/reactive-firewall/pak/branch/stable)
-[![Code Coverage](https://codecov.io/gh/reactive-firewall/pak/branch/stable/graph/badge.svg)](https://codecov.io/gh/reactive-firewall/pak/branch/stable/)
-[![Coverage Status](https://coveralls.io/repos/github/reactive-firewall/pak/badge.svg?branch=stable)](https://coveralls.io/github/reactive-firewall/pak?branch=stable)
-[![codebeat badge](https://codebeat.co/badges/87520e4a-6d24-4e98-a61e-6e9efc58f783)](https://codebeat.co/projects/github-com-reactive-firewall-pak-stable)
+[![CircleCI](https://circleci.com/gh/reactive-firewall/pypak/tree/stable.svg?style=svg)](https://circleci.com/gh/reactive-firewall/pypak/tree/stable)
+[![Appveyor](https://ci.appveyor.com/api/projects/status/6gggp1wpbnnjokm4/branch/stable?svg=true)](https://ci.appveyor.com/project/reactive-firewall/pypak/branch/stable)
+[![Code Coverage](https://codecov.io/gh/reactive-firewall/pypak/branch/stable/graph/badge.svg)](https://codecov.io/gh/reactive-firewall/pypak/branch/stable/)
+[![Coverage Status](https://coveralls.io/repos/github/reactive-firewall/pypak/badge.svg?branch=stable)](https://coveralls.io/github/reactive-firewall/pypak?branch=stable)
+[![codebeat badge](https://codebeat.co/badges/87520e4a-6d24-4e98-a61e-6e9efc58f783)](https://codebeat.co/projects/github-com-reactive-firewall-pypak-stable)
 
 ## Installation
 
 Clone the repository and navigate to the project directory:
 
 ```bash
-git clone https://github.com/reactive-firewall/pak.git
-cd pak
+git clone https://github.com/reactive-firewall/pypak.git
+cd pypak
 ```
 
 Install the required dependencies:
@@ -70,24 +70,24 @@ pip install -r requirements.txt
 
 ## Usage
 
-PAK provides a set of modules and scripts that can be utilized in your Python projects. You can
+pypak provides a set of modules and scripts that can be utilized in your Python projects. You can
 import the modules in your Python code as follows:
 
 ```python
-import pak
+import pypak
 ```
 
 ## Features
 
 ### Modules
 
-- `pak/__init__.py`: The initialization module for PAK.
-- `pak/anything.py`: Contains the `anything` and `nothing` classes, providing generic object
+- `pypak/__init__.py`: The initialization module for pypak.
+- `pypak/anything.py`: Contains the `anything` and `nothing` classes, providing generic object
 implementations with extensive method overloading and testing examples.
 
 ### Scripts
 
-- `setup.py`: Script to install the PAK package.
+- `setup.py`: Script to install the pypak package.
 - `Makefile`: Contains development, testing, and cleaning commands for ease of use.
 
 ### Documentation
@@ -157,7 +157,7 @@ Contributions are welcome! Please follow these steps:
 
 ## License
 
-[![MIT License](https://img.shields.io/github/license/reactive-firewall/pak.svg?maxAge=2592000)](https://github.com/reactive-firewall/pak/blob/stable/LICENSE.md)
+[![MIT License](https://img.shields.io/github/license/reactive-firewall/pypak.svg?maxAge=2592000)](https://github.com/reactive-firewall/pypak/blob/stable/LICENSE.md)
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 

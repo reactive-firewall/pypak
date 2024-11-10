@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Python Acessory Kit Repo
+# Python Programming Acessory Kit Repo
 # ..................................
-# Copyright (c) 2018-2023, Kendrick Walls
+# Copyright (c) 2018-2023, reactive-firewall
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 # ..........................................
-# http://www.github.com/reactive-firewall/pak/LICENSE.md
+# http://www.github.com/reactive-firewall/pypak/LICENSE.md
 # ......................................................................
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,22 +24,22 @@ __all__ = [
 ]
 
 
-__package__ = """pak"""
+__package__ = """pypak"""
 
 
-__module__ = """pak"""
+__module__ = """pypak"""
 
 
-__name__ = """pak"""
+__name__ = """pypak"""
 
 
 global __version__
 
 
-__version__ = """1.0.0"""
+__version__ = """2.0.0-rc-2"""
 
 
-__prolog__ = str("""PAK library version {version}.""").format(version=__version__)
+__prolog__ = str("""pypak library version {version}.""").format(version=__version__)
 
 
 __doc__ = __prolog__ + """
@@ -48,40 +48,40 @@ __doc__ = __prolog__ + """
 
 	First setup test fixtures by importing anything.
 
-		>>> import pak
+		>>> import pypak
 		>>>
 
-		>>> pak.__doc__ is not None
+		>>> pypak.__doc__ is not None
 		True
 		>>>
 
-		>>> pak.__version__ is not None
+		>>> pypak.__version__ is not None
 		True
 		>>>
 
 		Testcase 0: Docs should have a prolog.
 
-		>>> pak.__prolog__ is not None
+		>>> pypak.__prolog__ is not None
 		True
-		>>> pak.__prolog__ in pak.__doc__
+		>>> pypak.__prolog__ in pypak.__doc__
 		True
 		>>>
 
-		Testcase 1: pak.anything should have a doctests.
+		Testcase 1: pypak.anything should have a doctests.
 
-		>>> pak.anything.__module__ is not None
+		>>> pypak.anything.__module__ is not None
 		True
 		>>>
 
 		Testcase 2: Anything should be.
 
-		>>> type(pak.anything.anything) is not None
+		>>> type(pypak.anything.anything) is not None
 		True
 		>>>
 
 		Testcase 3: Anything should be.
 
-		>>> pak.anything.anything() is not None
+		>>> pypak.anything.anything() is not None
 		True
 		>>>
 
@@ -91,26 +91,26 @@ __doc__ = __prolog__ + """
 try:
 	import sys
 	if sys.__name__ is None:
-		raise ImportError("OMG! we could not import os. We're like in the matrix! ABORT. ABORT.")
+		raise ImportError("OMG! we could not import os. We're like in the matrix!") from None
 except Exception as err:
-	raise ImportError(err)
+	raise ImportError(err) from err
 
 
 def __super_import__(module_named_x):
 	"""
-		A wrapper for importing that allows reuse. WARNING: Only intended for pak internals.
+		A wrapper for importing that allows reuse. WARNING: Only intended for pypak internals.
 
-		pak should still be imported the normal way:
+		pypak should still be imported the normal way:
 
 		:Param module_named_x: - the name of the module
 		:Returns module: the module
 
-		>>> import pak
+		>>> import pypak
 		>>>
 
 		Usage:
 
-		>>> pak.__super_import__(\"os\") #doctest: +ELLIPSIS
+		>>> pypak.__super_import__(\"os\") #doctest: +ELLIPSIS
 		<module \'os\' ...>
 		>>>
 
@@ -128,8 +128,8 @@ def __super_import__(module_named_x):
 		globals()[module_named_x] = module_obj
 		return module_obj
 	except Exception:
-		raise _panic_fixture
-	raise _panic_fixture
+		raise _panic_fixture from None
+	raise _panic_fixture from None
 
 
 os = __super_import__("""os""")
@@ -143,7 +143,7 @@ try:
 	_PARENT_DIR_NAME = str("..")
 	_BASE_NAME = os.path.dirname(__file__)
 	try:
-		if str("pak") in __file__:
+		if str("pypak") in __file__:
 			search_list = [
 				os.path.abspath(os.path.join(_BASE_NAME, _PARENT_DIR_NAME)),
 				os.path.abspath(os.path.join(_BASE_NAME, _DIR_NAME))
@@ -152,27 +152,27 @@ try:
 				if __sys_path__ not in sys.path:
 					sys.path.insert(0, __sys_path__)
 	except Exception:
-		raise ImportError("pak failed to import.")
+		raise ImportError("pypak failed to import.") from None
 except Exception as ImportErr:
 	print(str(type(ImportErr)))
 	print(str(ImportErr))
 	print(str((ImportErr.args)))
-	ImportErr = None
-	del ImportErr
-	raise ImportError(str("pak Failed to Import"))
+	raise ImportError(str("pypak Failed to Import")) from ImportErr
 
 
 try:
-	if """pak.anything""" not in sys.modules:
+	if """pypak.anything""" not in sys.modules:
 		from . import anything as anything
 	else:  # pragma: no branch
-		anything = sys.modules["""pak.anything"""]
+		anything = sys.modules["""pypak.anything"""]
 except Exception as importErr:
 	del importErr
-	import pak.anything as anything
+	import pypak.anything as anything
 
 
 if __name__ in "__main__":
-	raise ImportError(str("Failed to become an entrypoint instead of a Library. No Magic here."))
+	raise ImportError(
+		str("Failed to become an entrypoint instead of a Library. No Magic here.")
+	) from None
 	exit(255)  # nocov
 

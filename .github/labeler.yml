@@ -3,7 +3,7 @@ Python Repo:
   - changed-files:
     - any-glob-to-any-file:
       - setup.py
-      - pak/*.py
+      - pypak/*.py
       - LICENSE
       - LICENSE.md
 
