@@ -153,7 +153,7 @@ if __name__ == '__main__':
 		]
 	except Exception as e:
 		print(f"Warning: Error occurred while setting class_tags: {e}")
-		class_tags = ["Development Status :: 5 - Stable"]
+		class_tags = ["Development Status :: 5 - Production/Stable"]
 	# finally the setup
 	setup(
 		name=conf_dict["""metadata"""]["""name"""],

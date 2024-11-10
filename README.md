@@ -1,4 +1,4 @@
-# Python Programming Accessory Kit (pypak)
+# Python Programming Accessory Kit (PyPak)
 
 ## Table of Contents
 

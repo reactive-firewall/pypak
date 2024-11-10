@@ -36,7 +36,7 @@ __name__ = """pypak"""
 global __version__
 
 
-__version__ = """2.0.0r1"""
+__version__ = """2.0.0-rc-2"""
 
 
 __prolog__ = str("""pypak library version {version}.""").format(version=__version__)
@@ -91,7 +91,7 @@ __doc__ = __prolog__ + """
 try:
 	import sys
 	if sys.__name__ is None:
-		raise ImportError("OMG! we could not import os. We're like in the matrix! ABORT. ABORT.")
+		raise ImportError("OMG! we could not import os. We're like in the matrix!")
 except Exception as err:
 	raise ImportError(err)
 
