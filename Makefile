@@ -1,14 +1,14 @@
 #!/usr/bin/env make -f
 
-# Python PAK Repo
+# Python pypak Repo
 # ..................................
-# Copyright (c) 2017-2024, Mr. Walls
+# Copyright (c) 2017-2024, reactive-firewall
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 # ..........................................
-# http://www.github.com/reactive-firewall/pak/LICENSE.md
+# http://www.github.com/reactive-firewall/pypak/LICENSE.md
 # ..........................................
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -192,12 +192,12 @@ init:
 	$(QUIET)$(ECHO) "$@: Done."
 
 install: init build must_be_root
-	$(QUIET)$(PYTHON) -m pip install $(PIP_COMMON_FLAGS) $(PIP_ENV_FLAGS) -e "git+https://github.com/reactive-firewall/pak.git#egg=pak"
+	$(QUIET)$(PYTHON) -m pip install $(PIP_COMMON_FLAGS) $(PIP_ENV_FLAGS) -e "git+https://github.com/reactive-firewall/pypak.git#egg=pypak"
 	$(QUIET)$(WAIT)
 	$(QUIET)$(ECHO) "$@: Done."
 
 uninstall:
-	$(QUIET)$(PYTHON) -m pip uninstall --use-pep517 $(PIP_ENV_FLAGS) --no-input -y pak 2>$(ERROR_LOG_PATH) || :
+	$(QUIET)$(PYTHON) -m pip uninstall --use-pep517 $(PIP_ENV_FLAGS) --no-input -y pypak 2>$(ERROR_LOG_PATH) || :
 	$(QUIET)$(WAIT)
 	$(QUIET)$(ECHO) "$@: Done."
 
@@ -212,7 +212,7 @@ purge: clean uninstall
 	$(QUIET)$(ECHO) "$@: Done."
 
 test: cleanup MANIFEST.in
-	$(QUIET)$(COVERAGE) run -p --source=pak -m unittest discover --verbose --buffer -s ./tests -t $(dir $(abspath $(lastword $(MAKEFILE_LIST)))) || $(PYTHON) -m unittest discover --verbose --buffer -s ./tests -t ./ || DO_FAIL="exit 2" ;
+	$(QUIET)$(COVERAGE) run -p --source=pypak -m unittest discover --verbose --buffer -s ./tests -t $(dir $(abspath $(lastword $(MAKEFILE_LIST)))) || $(PYTHON) -m unittest discover --verbose --buffer -s ./tests -t ./ || DO_FAIL="exit 2" ;
 	$(QUIET)$(WAIT) ;
 	$(QUIET)$(DO_FAIL) ;
 	$(QUIET)$(COVERAGE) combine 2>$(ERROR_LOG_PATH) || : ;
@@ -238,7 +238,7 @@ docs-reqs: ./docs/ ./docs/requirements.txt init
 	$(QUIET)$(WAIT) ;
 
 test-pytest: cleanup MANIFEST.in must_have_pytest test-reports
-	$(QUIET)$(PYTHON) -m pytest --cache-clear --doctest-glob=pak/*.py --doctest-modules --cov=. --cov-append --cov-report=xml --junitxml=test-reports/junit.xml -v --rootdir=. || DO_FAIL="exit 2" ;
+	$(QUIET)$(PYTHON) -m pytest --cache-clear --doctest-glob=pypak/*.py --doctest-modules --cov=. --cov-append --cov-report=xml --junitxml=test-reports/junit.xml -v --rootdir=. || DO_FAIL="exit 2" ;
 	$(QUIET)$(WAIT) ;
 	$(QUIET)$(DO_FAIL) ;
 	$(QUIET)$(ECHO) "$@: Done."
@@ -264,18 +264,18 @@ cleanup:
 	$(QUIET)$(RM) tests/*~ 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RM) tests/__pycache__/* 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RM) __pycache__/* 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(RM) pak/*.pyc 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(RM) pak/*~ 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(RM) pak/__pycache__/* 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(RM) pak/*/*.pyc 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(RM) pak/*/*~ 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(RM) pak/*.DS_Store 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(RM) pak/*/*.DS_Store 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(RM) pak/.DS_Store 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(RM) pak/*/.DS_Store 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(RM) pypak/*.pyc 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(RM) pypak/*~ 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(RM) pypak/__pycache__/* 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(RM) pypak/*/*.pyc 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(RM) pypak/*/*~ 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(RM) pypak/*.DS_Store 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(RM) pypak/*/*.DS_Store 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(RM) pypak/.DS_Store 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(RM) pypak/*/.DS_Store 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RM) tests/.DS_Store 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RM) tests/*/.DS_Store 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(RM) pak.egg-info/* 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(RM) pypak.egg-info/* 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RM) /tmp/test_data.pkl 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RM) ./*.pyc 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RM) ./.coverage 2>$(ERROR_LOG_PATH) || true
@@ -295,10 +295,10 @@ cleanup:
 	$(QUIET)$(RM) ./.hypothesis/* 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RMDIR) ./src/ 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RMDIR) tests/__pycache__ 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(RMDIR) pak/__pycache__ 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(RMDIR) pak/*/__pycache__ 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(RMDIR) pypak/__pycache__ 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(RMDIR) pypak/*/__pycache__ 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RMDIR) ./__pycache__ 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(RMDIR) pak.egg-info 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(RMDIR) pypak.egg-info 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RMDIR) .pytest_cache/ 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RMDIR) .eggs 2>$(ERROR_LOG_PATH) || true
 	$(QUIET)$(RMDIR) ./test_env/ 2>$(ERROR_LOG_PATH) || true
@@ -347,8 +347,8 @@ must_be_root:
 
 user-install: build
 	$(QUIET)$(PYTHON) -m pip install $(PIP_COMMON_FLAGS) $(PIP_ENV_FLAGS) --user "pip>=22.0" "setuptools>=75.0" "wheel>=0.44" "build>=1.1.1" 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(PYTHON) -m pip install $(PIP_COMMON_FLAGS) $(PIP_ENV_FLAGS) --user -r "https://raw.githubusercontent.com/reactive-firewall/pak/stable/requirements.txt" 2>$(ERROR_LOG_PATH) || true
-	$(QUIET)$(PYTHON) -m pip install $(PIP_COMMON_FLAGS) $(PIP_ENV_FLAGS) --user -e "git+https://github.com/reactive-firewall/pak.git#egg=pak"
+	$(QUIET)$(PYTHON) -m pip install $(PIP_COMMON_FLAGS) $(PIP_ENV_FLAGS) --user -r "https://raw.githubusercontent.com/reactive-firewall/pypak/stable/requirements.txt" 2>$(ERROR_LOG_PATH) || true
+	$(QUIET)$(PYTHON) -m pip install $(PIP_COMMON_FLAGS) $(PIP_ENV_FLAGS) --user -e "git+https://github.com/reactive-firewall/pypak.git#egg=pypak"
 	$(QUIET)$(WAIT)
 	$(QUIET)$(ECHO) "$@: Done."
 

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Python Acessory Kit Repo
+# Python Programming Acessory Kit Repo
 # ..................................
-# Copyright (c) 2018-2023, Kendrick Walls
+# Copyright (c) 2018-2023, reactive-firewall
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 # ..........................................
-# http://www.github.com/reactive-firewall/pak/LICENSE.md
+# http://www.github.com/reactive-firewall/pypak/LICENSE.md
 # ..........................................
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -37,7 +37,7 @@ __doc__ = """
 		>>> from context import subprocess as _subprocess
 		>>>
 
-		>>> from context import pak as _pak
+		>>> from context import pypak as _pypak
 		>>>
 
 		>>> from context import profiling as _profiling
@@ -90,12 +90,12 @@ except Exception:  # pragma: no branch
 
 
 try:
-	if 'pak' not in sys.modules:
-		import pak
+	if 'pypak' not in sys.modules:
+		import pypak
 	else:  # pragma: no branch
-		pak = sys.modules["""pak"""]
+		pypak = sys.modules["""pypak"""]
 except Exception:  # pragma: no branch
-	raise ImportError("[CWE-440] Python PAK Repo Failed to import.")
+	raise ImportError("[CWE-440] Python pypak Repo Failed to import.")
 
 
 try:
@@ -261,7 +261,7 @@ def checkCovCommand(args=[None]):
 			args[0] = str(getCoverageCommand())
 		extra_args = [
 			"""run""", """-p""",
-			"""--context=Integration""", """--source=pak"""
+			"""--context=Integration""", """--source=pypak"""
 		]
 		# PEP-279 - see https://www.python.org/dev/peps/pep-0279/
 		for k, ktem in enumerate(extra_args):

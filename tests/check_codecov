@@ -105,7 +105,7 @@ fi
 
 # THIS IS THE ACTUAL TEST DIR USED (update _TEST_ROOT_DIR as needed)
 _TEST_ROOT_DIR="./" ;
-if [[ -d ./pak ]] ; then
+if [[ -d ./pypak ]] ; then
 	_TEST_ROOT_DIR="./" ;
 elif [[ -d ./tests ]] ; then
 	_TEST_ROOT_DIR="./" ;
@@ -163,7 +163,7 @@ elif [[ ( -x $(command -v coverage) ) ]] ; then
 fi
 
 if [[ ( ${EXIT_CODE} -eq 0 ) ]] ; then
-	./codecov -n "Custom Test Run" -X gcov -F pak,${CI_OS:-linux}-latest -Z || EXIT_CODE=10 ;
+	./codecov -n "Custom Test Run" -X gcov -F pypak,${CI_OS:-linux}-latest -Z || EXIT_CODE=10 ;
 fi
 
 

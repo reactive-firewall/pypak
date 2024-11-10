@@ -29,14 +29,14 @@ coverage:
         if_ci_failed: error
         only_pulls: false
         removed_code_behavior: exclude
-      pak:
+      pypak:
         target: 95%
         threshold: 1%
         only_pulls: false
         flags:
-          - "pak"
+          - "pypak"
         paths:
-          - "pak/"
+          - "pypak/"
           - "!tests/"
       tests:
         target: 80%
@@ -48,14 +48,14 @@ coverage:
           - "tests"
         paths:
           - tests/
-          - "!pak/"
+          - "!pypak/"
 github_checks:
   annotations: true
 flags:
-  pak:
+  pypak:
     paths:
-      - "pak/"
+      - "pypak/"
   tests:
     paths:
       - "tests/"
-      - "!pak/"
+      - "!pypak/"

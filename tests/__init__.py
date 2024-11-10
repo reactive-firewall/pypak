@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Python Acessory Kit Repo
+# Python Programming Acessory Kit Repo
 # ..................................
-# Copyright (c) 2018-2023, Kendrick Walls
+# Copyright (c) 2018-2023, reactive-firewall
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 # ..........................................
-# http://www.github.com/reactive-firewall/pak/LICENSE.md
+# http://www.github.com/reactive-firewall/pypak/LICENSE.md
 # ......................................................................
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,7 +22,7 @@
 """Python Repo Testing Module."""
 
 __module__ = """tests"""
-"""This is pak testing module Template."""
+"""This is pypak testing module Template."""
 
 
 try:
@@ -61,19 +61,19 @@ except Exception:  # pragma: no branch
 
 
 try:
-	if 'pak' not in sys.modules:
-		import pak
+	if 'pypak' not in sys.modules:
+		import pypak
 	else:  # pragma: no branch
-		pak = sys.modules["""pak"""]
+		pypak = sys.modules["""pypak"""]
 except Exception:  # pragma: no branch
-	raise ImportError("[CWE-440] PAK Failed to import.")
+	raise ImportError("[CWE-440] pypak Failed to import.")
 
 
 try:
 	_DIR_NAME = str(".")
 	_PARENT_DIR_NAME = str("..")
 	_BASE_NAME = os.path.dirname(__file__)
-	if 'pak' in __file__:
+	if 'pypak' in __file__:
 		sys.path.insert(0, os.path.abspath(os.path.join(_BASE_NAME, _PARENT_DIR_NAME)))
 	if 'tests' in __file__:
 		sys.path.insert(0, os.path.abspath(os.path.join(_BASE_NAME, _DIR_NAME)))
@@ -122,6 +122,6 @@ def load_tests(loader, tests, pattern):
 	for test_class in test_cases:
 		tests = loader.loadTestsFromTestCase(test_class)
 		suite.addTests(tests)
-	suite.addTests(doctest.DocTestSuite(module=pak, test_finder=finder))
+	suite.addTests(doctest.DocTestSuite(module=pypak, test_finder=finder))
 	return suite
 

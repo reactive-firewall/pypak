@@ -120,10 +120,10 @@ reviews:
         Consider these 'requirements.txt' files the records of truth regarding project dependencies.
     - path: tests/requirements.txt
       instructions: >-
-        * The pak project's own dependencies are recorded in
+        * The pypak project's own dependencies are recorded in
         './requirements.txt' for production code.
 
-        * The pak project's own test code dependencies are recorded in
+        * The pypak project's own test code dependencies are recorded in
         'tests/requirements.txt' for testing the project.
 
         Consider these the records of truth regarding project test code dependencies.

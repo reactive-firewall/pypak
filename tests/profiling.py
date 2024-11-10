@@ -1,15 +1,15 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Python Acessory Kit Repo
+# Python Programming Acessory Kit Repo
 # ..................................
-# Copyright (c) 2018-2023, Kendrick Walls
+# Copyright (c) 2018-2023, reactive-firewall
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 # ..........................................
-# http://www.github.com/reactive-firewall/pak/LICENSE.md
+# http://www.github.com/reactive-firewall/pypak/LICENSE.md
 # ..........................................
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,

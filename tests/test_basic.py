@@ -3,7 +3,7 @@
 
 # Python Test Repo Template
 # ..................................
-# Copyright (c) 2017-2023, Kendrick Walls
+# Copyright (c) 2017-2023, reactive-firewall
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
@@ -54,13 +54,13 @@ class BasicTestSuite(context.BasicUsageTestSuite):
 		self.test_None_WHEN_Nothing()
 
 	def test_Does_Pass_WHEN_Using_Import_From_Syntax(self):
-		"""Test case 0: importing pak."""
+		"""Test case 0: importing pypak."""
 		theResult = False
 		try:
-			from .context import pak
-			self.assertIsNotNone(pak.__name__)
-			self.assertIsNotNone(pak.__module__)
-			self.assertIsNotNone(pak.__doc__)
+			from .context import pypak
+			self.assertIsNotNone(pypak.__name__)
+			self.assertIsNotNone(pypak.__module__)
+			self.assertIsNotNone(pypak.__doc__)
 			theResult = True
 		except Exception as impErr:
 			print(str(type(impErr)))

@@ -15,7 +15,7 @@ updates:
       - "Configs"
       - "Duplicate"
       - "Python Lang"
-      - "pak"
+      - "pypak"
     rebase-strategy: "disabled"
     groups:
       production-dependencies:

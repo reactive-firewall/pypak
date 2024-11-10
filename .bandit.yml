@@ -50,7 +50,7 @@ profiles:
       - ""
   fast_audit:
     include:
-      - "pak/*"
+      - "pypak/*"
     exclude:
       - "tests/*"
 

@@ -1,15 +1,15 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Python Acessory Kit Repo
+# Python Programming Acessory Kit Repo
 # ..................................
-# Copyright (c) 2018-2023, Kendrick Walls
+# Copyright (c) 2018-2023, reactive-firewall
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 # ..........................................
-# http://www.github.com/reactive-firewall/pak/LICENSE.md
+# http://www.github.com/reactive-firewall/pypak/LICENSE.md
 # ......................................................................
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -27,13 +27,13 @@ __all__ = [
 ]
 
 
-__package__ = """pak"""
+__package__ = """pypak"""
 
 
-__module__ = """pak.anything"""
+__module__ = """pypak.anything"""
 
 
-__file__ = """pak/anything.py"""
+__file__ = """pypak/anything.py"""
 
 
 __doc__ = """In OOP everything is something so the base object can be anything.
@@ -42,16 +42,16 @@ __doc__ = """In OOP everything is something so the base object can be anything.
 
 	First setup test fixtures by importing anything.
 
-	>>> import pak
+	>>> import pypak
 	>>>
 
-	>>> pak.anything.__doc__ is not None
+	>>> pypak.anything.__doc__ is not None
 	True
 	>>>
 
 	Testcase 0: Anything should be.
 
-	>>> pak.anything.anything() is not None
+	>>> pypak.anything.anything() is not None
 	True
 	>>>
 
@@ -59,10 +59,10 @@ __doc__ = """In OOP everything is something so the base object can be anything.
 		A: Test that the __id__ atribute is initialized.
 		B: Test that the __id__ atribute is an int.
 
-	>>> pak.anything.anything().__id__ is not None
+	>>> pypak.anything.anything().__id__ is not None
 	True
 	>>>
-	>>> isinstance(pak.anything.anything().__id__, int)
+	>>> isinstance(pypak.anything.anything().__id__, int)
 	True
 	>>>
 
@@ -71,7 +71,7 @@ __doc__ = """In OOP everything is something so the base object can be anything.
 		B: Test an instance is identifiable.
 		C: Test an instance is identifiable by it's hash.
 
-	>>> any_thing_fixture = pak.anything.anything()
+	>>> any_thing_fixture = pypak.anything.anything()
 	>>> any_thing_fixture.__id__ is not None
 	True
 	>>> any_thing_fixture.__id__ == hash(any_thing_fixture)
@@ -84,7 +84,7 @@ __doc__ = """In OOP everything is something so the base object can be anything.
 		A: Test that the __dict__ atribute is initialized
 		B: Test that the __dict__ atribute is a dict.
 
-	>>> pak.anything.anything().__dict__ is not None
+	>>> pypak.anything.anything().__dict__ is not None
 	True
 	>>>
 
@@ -98,27 +98,27 @@ class nothing(object):
 		Testing:
 
 		Testcase 1: Test nothing.
-			A: import the module pak.anything (Test Fixture)
-			B: Test that nothing is part of the module pak.anything
+			A: import the module pypak.anything (Test Fixture)
+			B: Test that nothing is part of the module pypak.anything
 
-		>>> import pak.anything
+		>>> import pypak.anything
 		>>>
-		>>> pak.anything.nothing.__module__ is not None
+		>>> pypak.anything.nothing.__module__ is not None
 		True
 		>>>
-		>>> pak.anything.nothing.__module__ is None
+		>>> pypak.anything.nothing.__module__ is None
 		False
 		>>>
-		>>> print(pak.anything.nothing.__module__) #doctest: +ELLIPSIS
-		pak.anything
+		>>> print(pypak.anything.nothing.__module__) #doctest: +ELLIPSIS
+		pypak.anything
 		>>>
-		>>> print(pak.anything.nothing.__name__)
+		>>> print(pypak.anything.nothing.__name__)
 		nothing
 		>>>
 
 	"""
 
-	__module__ = """pak.anything"""
+	__module__ = """pypak.anything"""
 
 	__name__ = """nothing"""
 
@@ -131,16 +131,16 @@ class nothing(object):
 			Testing:
 
 			Testcase 1: Test by call.
-				A: import the module pak.anything (Test Fixture)
+				A: import the module pypak.anything (Test Fixture)
 				B: Test that nothing can be.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 			>>> fixturecls = nothing()
 			>>> fixturecls is not None
 			True
 			>>> type(fixturecls)
-			<class 'pak.anything.nothing'>
+			<class 'pypak.anything.nothing'>
 			>>>
 
 		"""
@@ -154,15 +154,15 @@ class nothing(object):
 			Testing:
 
 			Testcase 1: Test by call.
-				A: import the module pak.anything (Test Fixture)
+				A: import the module pypak.anything (Test Fixture)
 				B: Test that data can be extracted.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 			>>> fixturecls = nothing()
 			>>>
 			>>> type(fixturecls)
-			<class 'pak.anything.nothing'>
+			<class 'pypak.anything.nothing'>
 			>>>
 			>>> fixturecls.__get_data__()
 			{}
@@ -180,15 +180,15 @@ class nothing(object):
 			Testing:
 
 			Testcase 1: Test by call to get.
-				A: import the module pak.anything (Test Fixture)
+				A: import the module pypak.anything (Test Fixture)
 				B: Test that data can be extracted.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 			>>> fixturecls = nothing()
 			>>>
 			>>> type(fixturecls)
-			<class 'pak.anything.nothing'>
+			<class 'pypak.anything.nothing'>
 			>>>
 			>>> fixturecls.__set_data__({}) #doctest: +ELLIPSIS
 			>>> fixturecls.__get_data__() #doctest: +ELLIPSIS
@@ -196,15 +196,15 @@ class nothing(object):
 			>>>
 
 			Testcase 2: Test by call to set.
-				A: import the module pak.anything (Test Fixture)
+				A: import the module pypak.anything (Test Fixture)
 				B: Test that data can be set and extracted.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 			>>> fixturecls = nothing()
 			>>>
 			>>> type(fixturecls)
-			<class 'pak.anything.nothing'>
+			<class 'pypak.anything.nothing'>
 			>>>
 			>>> fixturecls.__data__ #doctest: +ELLIPSIS
 			{}
@@ -241,29 +241,29 @@ class nothing(object):
 			Testing:
 
 			Testcase 1: Test by call.
-				A: import the module pak.anything (Test Fixture)
+				A: import the module pypak.anything (Test Fixture)
 				B: Test that data can be set and extracted.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 			>>> fixturecls = nothing()
 			>>>
 			>>> type(fixturecls)
-			<class 'pak.anything.nothing'>
+			<class 'pypak.anything.nothing'>
 			>>>
 			>>> fixturecls.__del_data__() # no errors expected
 			>>>
 
 			Testcase 2: Test by call to del.
-				A: import the module pak.anything (Test Fixture)
+				A: import the module pypak.anything (Test Fixture)
 				B: Test that data can be set and extracted and de-alocated.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 			>>> fixturecls = nothing()
 			>>>
 			>>> type(fixturecls)
-			<class 'pak.anything.nothing'>
+			<class 'pypak.anything.nothing'>
 			>>>
 			>>> fixturecls.__data__ #doctest: +ELLIPSIS
 			{}
@@ -287,15 +287,15 @@ class nothing(object):
 			Testing:
 
 			Testcase 1: Test by call.
-				A: import the module pak.anything (Test Fixture)
+				A: import the module pypak.anything (Test Fixture)
 				B: Test that id can be calculated.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 			>>> fixturecls = nothing()
 			>>>
 			>>> type(fixturecls)
-			<class 'pak.anything.nothing'>
+			<class 'pypak.anything.nothing'>
 			>>>
 			>>> fixturecls.__get_id__() > 0
 			True
@@ -322,15 +322,15 @@ class nothing(object):
 			Testing:
 
 			Testcase 1: Test by call to get.
-				A: import the module pak.anything (Test Fixture)
+				A: import the module pypak.anything (Test Fixture)
 				B: Test that id can be calculated.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 			>>> fixturecls = nothing()
 			>>>
 			>>> type(fixturecls)
-			<class 'pak.anything.nothing'>
+			<class 'pypak.anything.nothing'>
 			>>>
 			>>> fixturecls.__set_id_(123) #doctest: +ELLIPSIS, +IGNORE_EXCEPTION_DETAIL
 			Traceback (most recent call last):
@@ -342,16 +342,16 @@ class nothing(object):
 			>>>
 
 			Testcase 2: Test by altering __data__.
-				A: import the module pak.anything (Test Fixture)
+				A: import the module pypak.anything (Test Fixture)
 				B: Test that id can be calculated.
 				C: Test that __data__ can be changed.
 				D: Test that id can be recalculated (and is not same as B.)
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 			>>> fixturecls = nothing()
 			>>> type(fixturecls)
-			<class 'pak.anything.nothing'>
+			<class 'pypak.anything.nothing'>
 			>>> fixturecls.__set_id_(123) #doctest: +ELLIPSIS, +IGNORE_EXCEPTION_DETAIL
 			Traceback (most recent call last):
 			...
@@ -380,29 +380,29 @@ class nothing(object):
 			Testing:
 
 			Testcase 1: Test by call.
-				A: import the module pak.anything (Test Fixture)
+				A: import the module pypak.anything (Test Fixture)
 				B: Test that id can be de-alocated.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 			>>> fixturecls = nothing()
 			>>>
 			>>> type(fixturecls)
-			<class 'pak.anything.nothing'>
+			<class 'pypak.anything.nothing'>
 			>>>
 			>>> fixturecls.__del_id__() # no errors expected
 			>>>
 
 			Testcase 2: Test by call to del.
-				A: import the module pak.anything (Test Fixture)
+				A: import the module pypak.anything (Test Fixture)
 				B: Test that id can be set and extracted and de-alocated.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 			>>> fixturecls = nothing()
 			>>>
 			>>> type(fixturecls)
-			<class 'pak.anything.nothing'>
+			<class 'pypak.anything.nothing'>
 			>>>
 			>>>
 			>>> fixturecls.__real_id__ = 123 #doctest: +ELLIPSIS
@@ -423,15 +423,15 @@ class nothing(object):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: nothing is representable as text.
 
-			>>> repr(pak.anything.nothing()) is not None
+			>>> repr(pypak.anything.nothing()) is not None
 			True
-			>>> print(repr(pak.anything.nothing())) #doctest: +ELLIPSIS
-			<class \'pak.anything.nothing\'>
+			>>> print(repr(pypak.anything.nothing())) #doctest: +ELLIPSIS
+			<class \'pypak.anything.nothing\'>
 			>>>
 
 		"""
@@ -452,12 +452,12 @@ class nothing(object):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: nothing is anihalated without complaint.
 
-			>>> quantum = pak.anything.nothing()
+			>>> quantum = pypak.anything.nothing()
 			>>> quantum is not None
 			True
 			>>> del quantum
@@ -478,14 +478,14 @@ class nothing(object):
 			Full dynamic lifecycle usage...
 
 			Example: Test by calls to get/set/del.
-				A: imports the module pak.anything (Example Fixture)
+				A: imports the module pypak.anything (Example Fixture)
 				B: Shows that data can be set and extracted and de-alocated.
 
-			>>> import pak.anything as _anything
+			>>> import pypak.anything as _anything
 			>>>
 			>>> fixturecls = _anything.nothing()
 			>>> type(fixturecls)
-			<class 'pak.anything.nothing'>
+			<class 'pypak.anything.nothing'>
 			>>> fixturecls.__data__ #doctest: +ELLIPSIS
 			{}
 			>>> fixturecls.__data__ = {"data": "it works"} #doctest: +ELLIPSIS
@@ -504,14 +504,14 @@ class nothing(object):
 			Full dynamic lifecycle usage...
 
 			Example: Test by calls to get/set/del.
-				A: imports the module pak.anything (Example Fixture)
+				A: imports the module pypak.anything (Example Fixture)
 				B: Shows that __id__ can extracted and de-alocated but not directly set.
 
-			>>> import pak.anything as _anything
+			>>> import pypak.anything as _anything
 			>>>
 			>>> mynothing = _anything.nothing()
 			>>> type(mynothing)
-			<class 'pak.anything.nothing'>
+			<class 'pypak.anything.nothing'>
 			>>> isinstance(mynothing.__id__, int) or isinstance(mynothing.__id__, long)
 			True
 			>>> mynothing.__id__ = {"id": "won't work"} #doctest: +ELLIPSIS, +IGNORE_EXCEPTION_DETAIL
@@ -537,27 +537,27 @@ class anything(nothing):
 		Testing:
 
 		Testcase 1: Test nothing.
-			A: import the module pak.anything (Test Fixture)
-			B: Test that anything is part of the module pak.anything
+			A: import the module pypak.anything (Test Fixture)
+			B: Test that anything is part of the module pypak.anything
 
-		>>> import pak.anything
+		>>> import pypak.anything
 		>>>
-		>>> pak.anything.anything.__module__ is not None
+		>>> pypak.anything.anything.__module__ is not None
 		True
 		>>>
-		>>> pak.anything.anything.__module__ is None
+		>>> pypak.anything.anything.__module__ is None
 		False
 		>>>
-		>>> print(pak.anything.anything.__module__) #doctest: +ELLIPSIS
-		pak.anything
+		>>> print(pypak.anything.anything.__module__) #doctest: +ELLIPSIS
+		pypak.anything
 		>>>
-		>>> print(pak.anything.anything.__name__) #doctest: +ELLIPSIS
+		>>> print(pypak.anything.anything.__name__) #doctest: +ELLIPSIS
 		anything
 		>>>
 
 	"""
 
-	__module__ = """pak.anything"""
+	__module__ = """pypak.anything"""
 
 	__name__ = """anything"""
 
@@ -570,12 +570,12 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 0: Anything should be.
 
-			>>> pak.anything.anything() is not None
+			>>> pypak.anything.anything() is not None
 			True
 			>>>
 
@@ -584,7 +584,7 @@ class anything(nothing):
 				B: Test creating an object ()
 				C: Test the test fixtures are different instances
 
-			>>> any_thing = pak.anything.anything()
+			>>> any_thing = pypak.anything.anything()
 			>>> some_object = object()
 			>>> any_thing is not None
 			True
@@ -595,14 +595,14 @@ class anything(nothing):
 			>>> some_object is not any_thing
 			True
 			>>> print(type(any_thing)) #doctest: +ELLIPSIS
-			<... \'pak.anything.anything\'>
+			<... \'pypak.anything.anything\'>
 			>>>
 
 			Testcase 2 (Really Testcase 1 continued)
 				Re-Use A thru C as a fixture
 				D: Anything should not be just some object but can be an object.
 
-			>>> any_thing = pak.anything.anything()
+			>>> any_thing = pypak.anything.anything()
 			>>> some_object = object()
 			>>> any_thing is not None
 			True
@@ -628,13 +628,13 @@ class anything(nothing):
 				A: Test creating anything with some data
 
 			>>> mapping = dict({"__real_data__": dict({"thetest": "it works"})})
-			>>> any_thing = pak.anything.anything(**mapping)
+			>>> any_thing = pypak.anything.anything(**mapping)
 			>>> any_thing is not None
 			True
 			>>> any_thing.__data__ is not None
 			True
 			>>> print(type(any_thing)) #doctest: +ELLIPSIS
-			<... \'pak.anything.anything\'>
+			<... \'pypak.anything.anything\'>
 			>>> any_thing.__data__ #doctest: +ELLIPSIS
 			{...it works...}
 			>>>
@@ -659,17 +659,17 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: Anything should be identifiable.
 				A: Test that the __id__ atribute is initialized.
 				B: Test that the __id__ atribute is an int.
 
-			>>> pak.anything.anything().__id__ is not None
+			>>> pypak.anything.anything().__id__ is not None
 			True
 			>>>
-			>>> isinstance(pak.anything.anything().__id__, int)
+			>>> isinstance(pypak.anything.anything().__id__, int)
 			True
 			>>>
 
@@ -677,10 +677,10 @@ class anything(nothing):
 				A: Test that the __id__ atribute is initialized.
 				B: Test that the __id__ atribute is an int.
 
-			>>> pak.anything.anything().__id__ is not None
+			>>> pypak.anything.anything().__id__ is not None
 			True
 			>>>
-			>>> isinstance(pak.anything.anything().__id__, int)
+			>>> isinstance(pypak.anything.anything().__id__, int)
 			True
 			>>>
 
@@ -688,7 +688,7 @@ class anything(nothing):
 				A: Test that the __dict__ atribute is initialized
 				B: Test that the __dict__ atribute is a class __dict__ attribute (i.e. NOT a dict)
 
-			>>> test_fixture = pak.anything.anything()
+			>>> test_fixture = pypak.anything.anything()
 			>>> test_fixture.__getattr__("__dict__") #doctest: +ELLIPSIS
 			{}
 			>>> test_fixture.__dict__ is not None
@@ -700,7 +700,7 @@ class anything(nothing):
 			Testcase 4: Instances of Anything should always have an id even when they don't.
 				A: Test that the __id__ atribute is generated from nothing when needed
 
-			>>> paradox_fixture = pak.anything.anything()
+			>>> paradox_fixture = pypak.anything.anything()
 			>>> paradox_fixture.__getattr__("__id__") is not None
 			True
 			>>> paradox_fixture.__getattr__("__id__") is not id(paradox_fixture)
@@ -715,7 +715,7 @@ class anything(nothing):
 				A: Test that the __data__ atribute is initialized
 				B: Test that the __data__ atribute is a dict.
 
-			>>> test_fixture = pak.anything.anything()
+			>>> test_fixture = pypak.anything.anything()
 			>>> test_fixture.__getattr__("__data__") #doctest: +ELLIPSIS
 			{}
 			>>> test_fixture.__data__ is not None
@@ -748,32 +748,32 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: Anything should be identifiable.
 			A: Test that the __id__ atribute is initialized.
 			B: Test that the __id__ atribute is an int.
 
-			>>> pak.anything.anything().__id__ is not None
+			>>> pypak.anything.anything().__id__ is not None
 			True
 			>>>
-			>>> isinstance(pak.anything.anything().__id__, int)
+			>>> isinstance(pypak.anything.anything().__id__, int)
 			True
 			>>>
 
 			Testcase 2: Anything can get any data
 
-			>>> pak.anything.anything().data is not None
+			>>> pypak.anything.anything().data is not None
 			True
 			>>>
-			>>> isinstance(pak.anything.anything().data, dict)
+			>>> isinstance(pypak.anything.anything().data, dict)
 			True
 			>>>
-			>>> pak.anything.anything().__data__ is not None
+			>>> pypak.anything.anything().__data__ is not None
 			True
 			>>>
-			>>> isinstance(pak.anything.anything().__data__, dict)
+			>>> isinstance(pypak.anything.anything().__data__, dict)
 			True
 			>>>
 
@@ -801,12 +801,12 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: Instances of Anything should be able to contain instance data
 
-			>>> any_thing_fixture = pak.anything.anything()
+			>>> any_thing_fixture = pypak.anything.anything()
 			>>> any_thing_fixture.junk = "5"
 			>>> print(any_thing_fixture.__data__) #doctest: +ELLIPSIS
 			{...\'junk\': \'5\'...}
@@ -831,7 +831,7 @@ class anything(nothing):
 
 			Testcase 2: Instances of Anything should be able to set id
 
-			>>> any_thing_fixture = pak.anything.anything()
+			>>> any_thing_fixture = pypak.anything.anything()
 			>>> any_thing_fixture.junk = "1"
 			>>> print(any_thing_fixture.__data__) #doctest: +ELLIPSIS
 			{...\'junk\': \'1\'...}
@@ -866,8 +866,8 @@ class anything(nothing):
 
 			Testcase 3: Instances of Anything should be able to contain instance data literally
 
-			>>> src_fixture = pak.anything.anything()
-			>>> dst_fixture = pak.anything.anything()
+			>>> src_fixture = pypak.anything.anything()
+			>>> dst_fixture = pypak.anything.anything()
 			>>> src_fixture.junk = "it works"
 			>>> src_fixture.__data__ #doctest: +ELLIPSIS
 			{...it works...}
@@ -914,12 +914,12 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: Instances of Anything should be able to delete contained instance data
 
-			>>> any_thing_fixture = pak.anything.anything()
+			>>> any_thing_fixture = pypak.anything.anything()
 			>>> any_thing_fixture.junk = "5"
 			>>> print(any_thing_fixture.__data__) #doctest: +ELLIPSIS
 			{...\'junk\': \'5\'...}
@@ -945,7 +945,7 @@ class anything(nothing):
 
 			Testcase 1: Instances of Anything should be able to delete contained instance data
 
-			>>> any_thing_fixture = pak.anything.anything()
+			>>> any_thing_fixture = pypak.anything.anything()
 			>>> any_thing_fixture.junk = "5"
 			>>> print(any_thing_fixture.__data__) #doctest: +ELLIPSIS
 			{...\'junk\': \'5\'...}
@@ -1003,7 +1003,7 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: Anything should be indexable.
@@ -1011,8 +1011,8 @@ class anything(nothing):
 				B: Test that the __index__ result is an int.
 				C: Test that the __index__ result is not fixed by default.
 
-			>>> fixture_a = pak.anything.anything()
-			>>> fixture_b = pak.anything.anything()
+			>>> fixture_a = pypak.anything.anything()
+			>>> fixture_b = pypak.anything.anything()
 			>>> fixture_b._change_ = True
 			>>> fixture_a is not fixture_b
 			True
@@ -1051,7 +1051,7 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: Anything should be indexable.
@@ -1059,8 +1059,8 @@ class anything(nothing):
 			B: Test that the __hash__ result is an int or long.
 			C: Test that the __hash__ result is not fixed by default.
 
-			>>> fixture_a = pak.anything.anything()
-			>>> fixture_b = pak.anything.anything()
+			>>> fixture_a = pypak.anything.anything()
+			>>> fixture_b = pypak.anything.anything()
 			>>> fixture_b._change_ = True
 			>>> print(fixture_b.__data__) #doctest: +ELLIPSIS
 			{...\'_change_\': ...}
@@ -1106,7 +1106,7 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: Anything should maintain an id until GCed (even if not static nor unique).
@@ -1116,10 +1116,10 @@ class anything(nothing):
 				D: Ensure they are different instances
 				E: Delete the instances (should be error free)
 
-			>>> test_obj = pak.anything.anything()
+			>>> test_obj = pypak.anything.anything()
 			>>> test_obj.__id__ == test_obj.__id__
 			True
-			>>> other_obj = pak.anything.anything()
+			>>> other_obj = pypak.anything.anything()
 			>>> other_obj.__id__ == other_obj.__id__
 			True
 			>>> other_obj._change_ = "different"
@@ -1153,7 +1153,7 @@ class anything(nothing):
 				C: Change that instance
 				D: Delete the instances (should be error free)
 
-			>>> test_obj = pak.anything.anything()
+			>>> test_obj = pypak.anything.anything()
 			>>> test_obj.__id__ == test_obj.__id__
 			True
 			>>> test_obj is not None
@@ -1176,24 +1176,24 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: dir(anything) is error free
 
-			>>> dir(pak.anything.anything()) is not None
+			>>> dir(pypak.anything.anything()) is not None
 			True
 			>>>
 
 			Testcase 2: dir(anything) is not empty
 
-			>>> len(dir(pak.anything.anything())) > 3
+			>>> len(dir(pypak.anything.anything())) > 3
 			True
 			>>>
 
 			Testcase 3: dir(anything) has data and id
 
-			>>> test_dir_fixture  = pak.anything.anything()
+			>>> test_dir_fixture  = pypak.anything.anything()
 			>>> len(dir(test_dir_fixture)) > 3
 			True
 			>>> str("__data__") in dir(test_dir_fixture)
@@ -1215,13 +1215,13 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: Anything should be able to unpickle.
 				A: Test that state is real (not in the matrix)
 
-			>>> fixture_a = pak.anything.anything()
+			>>> fixture_a = pypak.anything.anything()
 			>>> fixture_a._change_ = True
 			>>> fixture_a.__getstate__() is not None
 			True
@@ -1232,8 +1232,8 @@ class anything(nothing):
 			Testcase 2: Anything should be able to pickle.
 				A: Test that input becomes output
 
-			>>> fixture_a = pak.anything.anything()
-			>>> fixture_b = pak.anything.anything()
+			>>> fixture_a = pypak.anything.anything()
+			>>> fixture_b = pypak.anything.anything()
 			>>> fixture_a._change_ = True
 			>>> fixture_a is not fixture_b
 			True
@@ -1278,14 +1278,14 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: Anything should be able to unpickle.
 				A: Test that input becomes output
 
-			>>> fixture_a = pak.anything.anything()
-			>>> fixture_b = pak.anything.anything()
+			>>> fixture_a = pypak.anything.anything()
+			>>> fixture_b = pypak.anything.anything()
 			>>> fixture_a._change_ = True
 			>>> fixture_a is not fixture_b
 			True
@@ -1336,14 +1336,14 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: anything is printable.
 
-			>>> str(pak.anything.anything()) is not None
+			>>> str(pypak.anything.anything()) is not None
 			True
-			>>> print(str(pak.anything.anything())) #doctest: +ELLIPSIS
+			>>> print(str(pypak.anything.anything())) #doctest: +ELLIPSIS
 			<anything with id ... and data={}>
 			>>>
 
@@ -1363,15 +1363,15 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: anything is representable as text.
 
-			>>> repr(pak.anything.anything()) is not None
+			>>> repr(pypak.anything.anything()) is not None
 			True
-			>>> repr(pak.anything.anything()) #doctest: +ELLIPSIS
-			\'{\"class\": pak.anything.anything, \"id\": ..., \"data\": dict({})}\'
+			>>> repr(pypak.anything.anything()) #doctest: +ELLIPSIS
+			\'{\"class\": pypak.anything.anything, \"id\": ..., \"data\": dict({})}\'
 			>>>
 
 		"""
@@ -1393,20 +1393,20 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: cross-python bytes compatable.
 
-			>>> pak.anything.anything().__bytes__() is not None
+			>>> pypak.anything.anything().__bytes__() is not None
 			True
-			>>> print(str(pak.anything.anything().__bytes__().decode('utf_8'))) #doctest: +ELLIPSIS
+			>>> print(str(pypak.anything.anything().__bytes__().decode('utf_8'))) #doctest: +ELLIPSIS
 			{...}
 			>>>
 
 			Testcase 2: data in bytes.
 
-			>>> test_fixture = pak.anything.anything()
+			>>> test_fixture = pypak.anything.anything()
 			>>> test_fixture is not None
 			True
 			>>> test_fixture.__bytes__() is not None
@@ -1430,14 +1430,14 @@ class anything(nothing):
 
 			First setup test fixtures by importing anything.
 
-			>>> import pak.anything
+			>>> import pypak.anything
 			>>>
 
 			Testcase 1: cross-python string compatable.
 
-			>>> pak.anything.anything().__unicode__() is not None
+			>>> pypak.anything.anything().__unicode__() is not None
 			True
-			>>> print(pak.anything.anything().__unicode__()) #doctest: +ELLIPSIS
+			>>> print(pypak.anything.anything().__unicode__()) #doctest: +ELLIPSIS
 			<anything with id ... and data={}>
 			>>>
 

@@ -1,4 +1,4 @@
-# Welcome to PAK's documentation
+# Welcome to pypak's documentation
 
 ## Documentation Resources
 
@@ -17,6 +17,6 @@ apidocs/index
 
 ---
 
-## Copyright (c) 2021-2024, Mr. Walls
+## Copyright (c) 2021-2024, reactive-firewall
 
-[![License - MIT](https://img.shields.io/github/license/reactive-firewall/pak.svg?maxAge=3600)](https://github.com/reactive-firewall/pak/blob/stable/LICENSE.md)
+[![License - MIT](https://img.shields.io/github/license/reactive-firewall/pypak.svg?maxAge=3600)](https://github.com/reactive-firewall/pypak/blob/stable/LICENSE.md)

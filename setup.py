@@ -1,15 +1,15 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Python PAK Repo
+# Python pypak Repo
 # ..................................
-# Copyright (c) 2017-2024, Mr. Walls
+# Copyright (c) 2017-2024, reactive-firewall
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 # ..........................................
-# http://www.github.com/reactive-firewall/pak/LICENSE
+# http://www.github.com/reactive-firewall/pypak/LICENSE
 # ..........................................
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,11 +21,11 @@
 
 Minimal Acceptance Testing:
 
-	Testcase 0: Just set up test fixtures by importing pak.
+	Testcase 0: Just set up test fixtures by importing pypak.
 
-		>>> import pak
+		>>> import pypak
 		>>>
-		>>> pak.__package__ is not None
+		>>> pypak.__package__ is not None
 		True
 		>>>
 
@@ -55,16 +55,16 @@ def readFile(filename):
 
 		Testing:
 
-		First set up test fixtures by importing pak.
+		First set up test fixtures by importing pypak.
 
-			>>> import pak
+			>>> import pypak
 			>>>
 
 		Testcase 0: Should have Function readFile() WHEN loading setup.py.
 
-			>>> pak.readFile is not None
+			>>> pypak.readFile is not None
 			True
-			>>> type(pak.readFile) is type(1)
+			>>> type(pypak.readFile) is type(1)
 			False
 			>>>
 
@@ -78,7 +78,7 @@ def readFile(filename):
 			theResult = f.read()
 	except Exception as err:
 		theResult = str(
-			"""See https://github.com/reactive-firewall/pak/{fn}\n{e}"""
+			"""See https://github.com/reactive-firewall/pypak/{fn}\n{e}"""
 		).format(fn=filename, e=str(err))
 	return str(theResult)
 
