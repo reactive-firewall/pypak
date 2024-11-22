@@ -30,17 +30,16 @@ with various development tasks.
 
 ### Master Branch
 
-[![status](https://travis-ci.org/reactive-firewall/pypak.svg?branch=master)](https://travis-ci.org/reactive-firewall/pypak)
 [![CircleCI](https://circleci.com/gh/reactive-firewall/pypak/tree/master.svg?style=svg)](https://circleci.com/gh/reactive-firewall/pypak/tree/master)
-[![Appveyor](https://ci.appveyor.com/api/projects/status/pypak/branch/master?svg=true)](https://ci.appveyor.com/project/reactive-firewall/pypak/branch/master)
+[![Appveyor](https://ci.appveyor.com/api/projects/status/d9n7w6nnuh02txnr/branch/master?svg=true)](https://ci.appveyor.com/project/reactive-firewall/pypak/branch/master)
 [![Python 3](https://pyup.io/repos/github/reactive-firewall/pypak/python-3-shield.svg)](https://pyup.io/repos/github/reactive-firewall/pypak/)
 [![Updates](https://pyup.io/repos/github/reactive-firewall/pypak/shield.svg)](https://pyup.io/repos/github/reactive-firewall/pypak/)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/pypak/test_coverage)](https://codeclimate.com/github/reactive-firewall/pypak/test_coverage)
-[![Code Coverage](https://codecov.io/gh/reactive-firewall/pypak/branch/master/graph/badge.svg)](https://codecov.io/gh/reactive-firewall/pypak/branch/master/)
+[![Code Coverage](https://codecov.io/gh/reactive-firewall/pypak/graph/badge.svg?token=QUkldC5aQZ)](https://codecov.io/gh/reactive-firewall/pypak)
 [![Coverage Status](https://coveralls.io/repos/github/reactive-firewall/pypak/badge.svg?branch=master)](https://coveralls.io/github/reactive-firewall/pypak?branch=master)
 [![Code Climate](https://codeclimate.com/github/reactive-firewall/pypak/badges/gpa.svg)](https://codeclimate.com/github/reactive-firewall/pypak)
 [![CodeFactor](https://www.codefactor.io/repository/github/reactive-firewall/pypak/badge)](https://www.codefactor.io/repository/github/reactive-firewall/pypak)
-[![codebeat badge](https://codebeat.co/badges/da1d8064-5736-49fd-9d61-d046aca38afb)](https://codebeat.co/projects/github-com-reactive-firewall-pypak-master)
+[![codebeat badge](https://codebeat.co/badges/e381a93a-09f6-416f-9196-61912fdf80e7)](https://codebeat.co/projects/github-com-reactive-firewall-pypak-master)
 ![Size](https://img.shields.io/github/languages/code-size/reactive-firewall/pypak.svg)
 ![commits-since](https://img.shields.io/github/commits-since/reactive-firewall/pypak/stable.svg?maxAge=9000)
 
@@ -48,10 +47,9 @@ with various development tasks.
 
 [CI](gha link goes here)
 [![CircleCI](https://circleci.com/gh/reactive-firewall/pypak/tree/stable.svg?style=svg)](https://circleci.com/gh/reactive-firewall/pypak/tree/stable)
-[![Appveyor](https://ci.appveyor.com/api/projects/status/6gggp1wpbnnjokm4/branch/stable?svg=true)](https://ci.appveyor.com/project/reactive-firewall/pypak/branch/stable)
+[![Appveyor](https://ci.appveyor.com/api/projects/status/d9n7w6nnuh02txnr/branch/stable?svg=true)](https://ci.appveyor.com/project/reactive-firewall/pypak/branch/stable)
 [![Code Coverage](https://codecov.io/gh/reactive-firewall/pypak/branch/stable/graph/badge.svg)](https://codecov.io/gh/reactive-firewall/pypak/branch/stable/)
 [![Coverage Status](https://coveralls.io/repos/github/reactive-firewall/pypak/badge.svg?branch=stable)](https://coveralls.io/github/reactive-firewall/pypak?branch=stable)
-[![codebeat badge](https://codebeat.co/badges/87520e4a-6d24-4e98-a61e-6e9efc58f783)](https://codebeat.co/projects/github-com-reactive-firewall-pypak-stable)
 
 ## Installation
 

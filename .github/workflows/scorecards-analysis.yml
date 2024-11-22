@@ -8,13 +8,15 @@ on:
     branches: ["master"]
 
 # Declare default permissions as read only.
-permissions: read-all
+permissions: {}
 
 jobs:
   analysis:
     name: Scorecards analysis
     runs-on: ubuntu-latest
     permissions:
+      contents: read
+      statuses: read
       # Needed to upload the results to code-scanning dashboard.
       security-events: write
 
