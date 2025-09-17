@@ -110,4 +110,3 @@ jobs:
           "$TOOL_PATH" "${FILE}" || { print_error "Linting failed." 119 119; exit 1; } ;
           printf "::endgroup::\n" ; unset FILE 2>/dev/null || true ;
         if: ${{ !cancelled() && steps.makefiles.outputs.files != '' }}
-
