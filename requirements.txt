@@ -3,16 +3,16 @@
 # re - builtin - PSF license
 # subprocess - PSF license
 # argparse - builtin - PSF license
-setuptools>=45.0
+setuptools>=80.9
 # virtualenv - MIT license
-virtualenv>=15.0.1
+virtualenv>=20.35.0
 # six - MIT license
 six>=1.0.0
 # pgpy - BSD 3-Clause licensed
 #pgpy>=0.4.1
 tox>=3.0.0
 #py>=1.4.33
-pip>=21.0
+pip>=25.2
 # python-repo - MIT license
 #-e git+https://github.com/reactive-firewall/python-repo.git#egg=python-repo
 

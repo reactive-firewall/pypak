@@ -1,9 +1,9 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Python Programming Acessory Kit Repo
+# Python Programming Accessory Kit Repo
 # ..................................
-# Copyright (c) 2018-2023, reactive-firewall
+# Copyright (c) 2018-2025, reactive-firewall
 # ..................................
 # Licensed under MIT (the "License");
 # you may not use this file except in compliance with the License.
