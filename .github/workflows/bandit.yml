@@ -30,7 +30,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5.0.0
       - name: Bandit Scan
-        uses: reactive-firewall/python-bandit-scan@v2.3
+        uses: reactive-firewall/python-bandit-scan@v2.4
         with: # optional arguments
           # exit with 0, even with results found
           exit_zero: false # optional, default is DEFAULT
