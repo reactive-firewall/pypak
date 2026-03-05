@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
       - name: Install Apt-Get Dependencies
@@ -36,7 +36,7 @@ jobs:
           yamllint --version || { print_error "Yamllint installation failed." 40 41 ; exit 126; }
           pandoc --version || { print_error "Pandoc installation failed." 40 41 ; exit 126; }
       - name: Force Setup newer go
-        uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6.0.0
+        uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
         with:
           go-version: 1.25
           check-latest: true
